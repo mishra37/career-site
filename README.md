@@ -1,9 +1,11 @@
 # CareerMatch — Personalized Career Site
 
-> **Decimal AI Take-Home Project** — A personalized career site that uses AI to match candidates with the most relevant job openings based on their resume.
+> **Decimal AI Take-Home Project** — A personalized career site that extracts keywords from uploaded resumes and matches candidates with the most relevant job openings.
 
 ![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688?logo=fastapi)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-38bdf8?logo=tailwindcss)
 
 ---
@@ -14,11 +16,14 @@
 |---------|-------------|
 | **Browse Jobs** | View 50+ open positions with search, filtering (department, level, type, location, remote), sorting, and pagination |
 | **Resume Upload** | Drag-and-drop PDF/TXT resume upload with real-time processing feedback |
-| **AI Matching** | Hybrid matching engine scores and ranks jobs based on resume content — skills, experience level, domain, and title relevance |
+| **Keyword Extraction** | Extracts skills, experience level, years of experience, education, and domain keywords from resumes using curated dictionaries |
+| **Keyword Matching** | Multi-signal scoring engine ranks jobs by skill overlap, title relevance, requirements match, and domain alignment |
+| **Extracted Keywords Display** | Sidebar shows all extracted keywords (skills, level, years, domains, education) after resume upload |
 | **Job Detail Pages** | Statically generated detail pages for each role with full descriptions, requirements, responsibilities, and skills |
 | **Dark Mode** | Automatic dark mode via `prefers-color-scheme` with consistent theming |
 | **Responsive Design** | Fully responsive layout from mobile to desktop |
 | **Animations** | Subtle stagger animations, fade-ins, and loading skeletons for a polished UX |
+| **API Docs** | Auto-generated Swagger/OpenAPI docs at `/docs` (FastAPI) |
 
 ---
 
@@ -26,15 +31,20 @@
 
 ```
 career-site/
+├── backend/                    # FastAPI Python backend
+│   ├── main.py                 # FastAPI app — 3 endpoints (jobs, jobs/:id, match)
+│   ├── models.py               # Pydantic models with camelCase serialization
+│   ├── jobs_data.py            # Loads shared jobs from data/jobs.json
+│   ├── keyword_extractor.py    # Resume keyword extraction engine
+│   ├── keyword_matcher.py      # Job matching & scoring engine
+│   └── requirements.txt        # Python dependencies
+├── data/
+│   └── jobs.json               # 50 jobs — shared data source for both services
 ├── src/
 │   ├── app/
-│   │   ├── api/
-│   │   │   ├── jobs/           # GET /api/jobs — listing with filters + pagination
-│   │   │   │   └── [id]/       # GET /api/jobs/:id — single job
-│   │   │   └── match/          # POST /api/match — resume upload + AI matching
 │   │   ├── jobs/[id]/          # Job detail page (SSG with generateStaticParams)
 │   │   ├── layout.tsx          # Root layout with Header + Footer
-│   │   ├── page.tsx            # Homepage — hero, resume upload, job grid
+│   │   ├── page.tsx            # Homepage — hero, resume upload, job grid, keyword sidebar
 │   │   └── globals.css         # Theme variables, animations, custom styles
 │   ├── components/
 │   │   ├── Header.tsx          # Sticky navigation header
@@ -43,27 +53,36 @@ career-site/
 │   │   ├── FilterBar.tsx       # Search + filter controls
 │   │   └── ResumeUpload.tsx    # Drag-and-drop resume upload component
 │   └── lib/
-│       ├── types.ts            # TypeScript interfaces (Job, MatchResult, etc.)
-│       ├── jobs-data.ts        # 50 synthetic jobs across diverse industries
-│       └── ai-matching.ts      # Hybrid AI matching engine
-├── .env.example                # Environment variable template
-├── next.config.ts              # Next.js configuration
+│       ├── types.ts            # TypeScript interfaces (Job, MatchResult, ExtractedKeywords)
+│       └── jobs-data.ts        # Jobs data for SSG page generation
+├── next.config.ts              # Proxies /api/* to FastAPI via rewrites
 └── package.json
 ```
 
+### Why FastAPI over Flask?
+
+| Criteria | FastAPI | Flask |
+|----------|---------|-------|
+| **Async support** | Native `async/await` — non-blocking I/O out of the box | Requires extensions (quart, gevent) |
+| **Data validation** | Built-in via Pydantic models — automatic request/response validation | Manual or via Flask-Marshmallow |
+| **API documentation** | Auto-generated Swagger UI + ReDoc at `/docs` | Requires Flask-RESTx or flasgger |
+| **File uploads** | Clean `UploadFile` API with streaming support | Werkzeug's `request.files` — more verbose |
+| **Performance** | ASGI-based, significantly faster than WSGI | WSGI, synchronous by default |
+| **Type hints** | First-class — powers validation, docs, and IDE support | Not integral to the framework |
+
+**FastAPI was the clear choice** for this project because it provides automatic OpenAPI docs, Pydantic model validation (with camelCase serialization for seamless frontend integration), and native async support — all essential for a modern API that handles file uploads and keyword extraction.
+
 ### Key Design Decisions
 
-1. **Next.js App Router** — Leverages React Server Components for the job detail pages (SSG with `generateStaticParams`) while keeping the interactive homepage as a client component. API routes handle resume processing server-side.
+1. **Decoupled Architecture** — The frontend (Next.js) and backend (FastAPI) are fully separated. Next.js proxies `/api/*` requests to FastAPI via `rewrites()`, keeping frontend code unchanged while the API runs as a standalone Python service.
 
-2. **Hybrid Matching Engine** — Two modes:
-   - **OpenAI Embeddings** (when `OPENAI_API_KEY` is set): Computes cosine similarity between resume and job description embeddings for semantic matching.
-   - **Keyword-Based Fallback** (default): Multi-signal scoring algorithm that doesn't require any API key — perfect for local development and demos.
+2. **Shared Data Source** — Both services read from `data/jobs.json`, ensuring a single source of truth for all 50 jobs. The frontend uses it for SSG page generation, while the backend loads it for search and matching.
 
-3. **In-Memory Data** — Job data lives in a TypeScript module for simplicity. This avoids the need for database setup while demonstrating the full data flow. See [Scalability](#-scaling-from-50-to-5-million-jobs) for how this would evolve.
+3. **Keyword-Based Matching** — Instead of semantic/embedding approaches, the engine uses explicit keyword extraction with curated skill dictionaries. This is transparent (users see exactly which keywords were extracted), fast (no API calls), and deterministic.
 
-4. **Diverse Job Data** — The 50 synthetic jobs intentionally span many industries (Engineering, Healthcare, Design, Marketing, Legal, Education, etc.) to test the matching engine's ability to discriminate between relevant and irrelevant roles.
+4. **Pydantic camelCase Models** — All API responses use `alias_generator=to_camel` so Python's `snake_case` fields serialize as `camelCase` JSON — matching JavaScript conventions without any frontend changes.
 
-5. **Server-Side PDF Parsing** — Resume PDFs are parsed on the server using `pdf-parse` to extract text, keeping the client lightweight and avoiding sending raw file bytes to external APIs.
+5. **Server-Side PDF Parsing** — Resume PDFs are parsed on the Python backend using `pdfplumber` (more reliable than pdf-parse for complex PDF layouts), keeping the client lightweight.
 
 ---
 
@@ -72,6 +91,7 @@ career-site/
 ### Prerequisites
 
 - **Node.js** ≥ 18
+- **Python** ≥ 3.10
 - **npm** or **yarn**
 
 ### Installation
@@ -81,49 +101,98 @@ career-site/
 git clone <repo-url>
 cd career-site
 
-# Install dependencies
+# ─── Frontend ───
 npm install
 
-# Copy environment variables (optional — works without API key)
-cp .env.example .env.local
+# ─── Backend ───
+cd backend
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+cd ..
+```
 
-# Start development server
+### Running the App
+
+You need **two terminals** — one for the FastAPI backend and one for the Next.js frontend:
+
+```bash
+# Terminal 1: Start FastAPI backend (port 8000)
+cd backend
+source venv/bin/activate
+uvicorn main:app --reload --port 8000
+
+# Terminal 2: Start Next.js frontend (port 3000)
 npm run dev
 ```
 
-The app will be available at **http://localhost:3000**.
+The app will be available at **http://localhost:3000**.  
+FastAPI Swagger docs are at **http://localhost:8000/docs**.
 
 ### Environment Variables
 
-| Variable | Required | Description |
-|----------|----------|-------------|
-| `OPENAI_API_KEY` | No | OpenAI API key for embedding-based semantic matching. If not set, the app uses the keyword-based matching fallback which works great out of the box. |
+| Variable | Required | Default | Description |
+|----------|----------|---------|-------------|
+| `API_URL` | No | `http://localhost:8000` | FastAPI backend URL (used by Next.js proxy) |
 
 ---
 
-## 🤖 AI Matching — How It Works
+## 🤖 Keyword Extraction & Matching — How It Works
 
-### Keyword-Based Matching (Default)
+### Step 1: Keyword Extraction (`keyword_extractor.py`)
 
-The fallback engine uses a **multi-signal scoring algorithm** with these weighted components:
+When a user uploads a resume, the backend extracts structured keywords:
 
-| Signal | Weight | Description |
-|--------|--------|-------------|
-| **Skill Matching** | 40% | Percentage of the job's required skills found in the resume |
-| **Title/Role Match** | 20% | Token overlap between job title and resume text |
-| **Domain Alignment** | 15% | Whether the resume's detected domain (engineering, healthcare, etc.) matches the job's department |
-| **Level Matching** | 15% | How well the candidate's inferred experience level matches the role (Intern → C-Suite) |
-| **Description Overlap** | 10% | Keyword overlap between job description and resume |
+| Extracted Data | Method | Example |
+|---------------|--------|---------|
+| **Skills** | Curated dictionaries (~250 skills) — matches multi-word first (e.g., "machine learning"), then single-word (e.g., "python") | `["python", "react", "machine learning", "aws"]` |
+| **Experience Level** | Pattern matching on keywords (e.g., "senior", "lead") + inferred from years | `"senior"` |
+| **Years of Experience** | Regex patterns (e.g., "5+ years", "3 years of experience") | `5` |
+| **Education** | Keyword matching (e.g., "bachelor", "phd", "computer science") | `["bachelor", "computer science"]` |
+| **Domains** | Requires ≥2 keyword hits per domain from 13 domain categories | `["engineering", "data science"]` |
 
-Additionally, the engine applies a **domain penalty** (0.3x multiplier) for completely unrelated fields (e.g., a software engineer shouldn't highly match a nursing position).
+**Key implementation details:**
+- Multi-word skills are matched first (sorted by length, longest first) to avoid partial matches
+- Single-word skills are matched against word tokens only (not substrings) — prevents "scala" matching "scalable"
+- Common false positives like "go" (the language vs. the word) are excluded — "golang" is used instead
+- If level isn't detected by keywords but years are found, level is inferred (e.g., 5 years → senior)
 
-### OpenAI Embeddings Mode
+### Step 2: Job Matching (`keyword_matcher.py`)
 
-When `OPENAI_API_KEY` is provided, the engine:
-1. Computes embeddings for the resume text using `text-embedding-3-small`
-2. Computes embeddings for each job's combined description + requirements + skills
-3. Ranks by cosine similarity
-4. Returns top 20 matches with semantic relevance scores
+Extracted keywords are scored against each of the 50 jobs using weighted signals:
+
+| Signal | Weight (pts) | Description |
+|--------|-------------|-------------|
+| **Skill Match** | 50 | Jaccard overlap between resume skills and job's requirements + skills |
+| **Title Relevance** | 20 | Word overlap between resume text and job title |
+| **Requirements Match** | 15 | How many of the job's specific requirements appear in the resume |
+| **Domain Alignment** | 15 | Whether the candidate's detected domains match the job's department |
+| **Level Bonus** | +5 | Added when experience level matches the job level |
+| **Domain Penalty** | ×0.3 | Applied when domains are completely unrelated (e.g., healthcare vs engineering) |
+
+Results are sorted by score and the top 20 matches (above a minimum threshold of 5) are returned.
+
+### Example
+
+Given a resume with "Senior Software Engineer, 5 years experience in Python, React, Node.js, PostgreSQL, AWS, microservices, REST APIs":
+
+**Extracted Keywords:**
+```json
+{
+  "skills": ["python", "react", "node.js", "postgresql", "aws", "microservices", "rest apis"],
+  "experienceLevel": "senior",
+  "yearsOfExperience": 5,
+  "domains": ["engineering"],
+  "education": []
+}
+```
+
+**Top Matches:**
+1. Senior Software Engineer — 46 pts
+2. Full Stack Engineer — 46 pts
+3. Junior Frontend Developer — 41 pts
+4. Backend Engineer — 39 pts
+5. Data Engineer — 35 pts
 
 ---
 
@@ -198,19 +267,25 @@ The key principle: **start simple, measure, then optimize the bottleneck**. Don'
 ### API Testing
 
 ```bash
-# List jobs with filters
+# List jobs with filters (through Next.js proxy)
 curl "http://localhost:3000/api/jobs?department=Engineering&level=Senior"
+
+# Or hit FastAPI directly
+curl "http://localhost:8000/api/jobs?department=Engineering&level=Senior"
 
 # Get a specific job
 curl "http://localhost:3000/api/jobs/1"
 
 # Match a resume (text file)
 curl -X POST "http://localhost:3000/api/match" \
-  -F "resume=@path/to/resume.txt;type=text/plain"
+  -F "resume=@path/to/resume.txt"
 
 # Match a resume (PDF)
 curl -X POST "http://localhost:3000/api/match" \
-  -F "resume=@path/to/resume.pdf;type=application/pdf"
+  -F "resume=@path/to/resume.pdf"
+
+# Interactive API docs (FastAPI auto-generated)
+open http://localhost:8000/docs
 ```
 
 ---
@@ -219,13 +294,16 @@ curl -X POST "http://localhost:3000/api/match" \
 
 | Layer | Technology | Why |
 |-------|-----------|-----|
-| **Framework** | Next.js 16 (App Router) | Server components, API routes, SSG, excellent DX |
-| **Language** | TypeScript | Type safety across the full stack |
-| **Styling** | Tailwind CSS v4 | Utility-first, excellent for rapid UI development |
+| **Frontend** | Next.js 16 (App Router) | Server components, SSG for job pages, proxy rewrites |
+| **Backend** | FastAPI 0.115 | Async, Pydantic validation, auto OpenAPI docs, native file upload |
+| **Language (FE)** | TypeScript 5 | Type safety across the frontend |
+| **Language (BE)** | Python 3.10+ | Rich NLP ecosystem, curated skill dictionaries |
+| **Styling** | Tailwind CSS v4 | Utility-first, rapid UI development |
 | **Icons** | Lucide React | Modern, consistent icon set |
-| **PDF Parsing** | pdf-parse v2 | Server-side PDF text extraction |
-| **AI** | OpenAI SDK (optional) | Embedding-based semantic matching |
-| **Deployment** | Vercel | Zero-config Next.js deployment |
+| **PDF Parsing** | pdfplumber | Robust server-side PDF text extraction |
+| **Data Validation** | Pydantic v2 | Request/response models with camelCase serialization |
+| **ASGI Server** | Uvicorn | High-performance Python web server |
+| **Deployment** | Vercel (FE) + any ASGI host (BE) | Decoupled deployment |
 
 ---
 

@@ -2,14 +2,15 @@
 
 import { useState, useCallback, useRef } from "react";
 import { Upload, FileText, X, Loader2, Sparkles } from "lucide-react";
-import { MatchResult } from "@/lib/types";
+import { MatchResult, ExtractedKeywords } from "@/lib/types";
 
 interface ResumeUploadProps {
-  onMatchResults: (results: MatchResult[] | null) => void;
+  onMatchResults: (results: MatchResult[] | null, keywords?: ExtractedKeywords | null) => void;
   isMatched: boolean;
+  extractedKeywords?: ExtractedKeywords | null;
 }
 
-export default function ResumeUpload({ onMatchResults, isMatched }: ResumeUploadProps) {
+export default function ResumeUpload({ onMatchResults, isMatched, extractedKeywords }: ResumeUploadProps) {
   const [isDragging, setIsDragging] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
   const [fileName, setFileName] = useState<string | null>(null);
@@ -31,17 +32,22 @@ export default function ResumeUpload({ onMatchResults, isMatched }: ResumeUpload
           body: formData,
         });
 
-        const data = await response.json();
-
         if (!response.ok) {
-          throw new Error(data.error || "Failed to process resume");
+          let message = "Failed to process resume";
+          try {
+            const errData = await response.json();
+            message = errData.detail || errData.error || message;
+          } catch {}
+          throw new Error(message);
         }
 
-        onMatchResults(data.matches);
+        const data = await response.json();
+
+        onMatchResults(data.matches, data.extractedKeywords);
       } catch (err) {
         setError(err instanceof Error ? err.message : "Something went wrong");
         setFileName(null);
-        onMatchResults(null);
+        onMatchResults(null, null);
       } finally {
         setIsUploading(false);
       }
@@ -62,7 +68,7 @@ export default function ResumeUpload({ onMatchResults, isMatched }: ResumeUpload
   const handleClear = () => {
     setFileName(null);
     setError(null);
-    onMatchResults(null);
+    onMatchResults(null, null);
     if (fileInputRef.current) fileInputRef.current.value = "";
   };
 
@@ -77,7 +83,12 @@ export default function ResumeUpload({ onMatchResults, isMatched }: ResumeUpload
             <p className="text-sm font-semibold text-foreground">
               Jobs personalized for you
             </p>
-            <p className="text-xs text-muted">{fileName}</p>
+            <p className="text-xs text-muted">
+              {fileName}
+              {extractedKeywords && extractedKeywords.skills.length > 0 && (
+                <> &middot; {extractedKeywords.skills.length} keywords found</>
+              )}
+            </p>
           </div>
         </div>
         <button

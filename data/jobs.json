@@ -1,0 +1,1953 @@
+[
+  {
+    "id": "1",
+    "title": "Senior Software Engineer",
+    "company": "Decimal AI",
+    "department": "Engineering",
+    "location": "San Francisco, CA",
+    "type": "Full-time",
+    "level": "Senior",
+    "salary": {
+      "min": 180000,
+      "max": 240000,
+      "currency": "USD"
+    },
+    "description": "We're looking for a Senior Software Engineer to help build and scale our AI-powered career platform. You'll work across the full stack, designing and implementing features that help millions of job seekers find their ideal roles.",
+    "requirements": [
+      "5+ years of professional software development experience",
+      "Strong proficiency in TypeScript and React",
+      "Experience with Node.js and RESTful API design",
+      "Familiarity with cloud services (AWS, GCP, or Azure)",
+      "BS/MS in Computer Science or equivalent experience"
+    ],
+    "responsibilities": [
+      "Design and implement scalable web applications",
+      "Collaborate with product and design teams to ship features",
+      "Mentor junior engineers and conduct code reviews",
+      "Contribute to architectural decisions and technical roadmap",
+      "Optimize application performance and reliability"
+    ],
+    "skills": [
+      "TypeScript",
+      "React",
+      "Node.js",
+      "PostgreSQL",
+      "AWS",
+      "Docker",
+      "GraphQL"
+    ],
+    "postedDate": "2026-02-15",
+    "remote": true
+  },
+  {
+    "id": "2",
+    "title": "Machine Learning Engineer",
+    "company": "Decimal AI",
+    "department": "AI & Data Science",
+    "location": "New York, NY",
+    "type": "Full-time",
+    "level": "Mid",
+    "salary": {
+      "min": 160000,
+      "max": 220000,
+      "currency": "USD"
+    },
+    "description": "Join our AI team to build and deploy machine learning models that power personalized job matching. You'll work on NLP, recommendation systems, and large-scale data pipelines.",
+    "requirements": [
+      "3+ years of experience in machine learning engineering",
+      "Strong Python programming skills",
+      "Experience with NLP and transformer-based models",
+      "Familiarity with ML frameworks (PyTorch, TensorFlow)",
+      "Experience deploying models to production"
+    ],
+    "responsibilities": [
+      "Develop and train ML models for job-resume matching",
+      "Build data pipelines for feature engineering",
+      "Evaluate and improve model performance metrics",
+      "Collaborate with engineering to integrate models into products",
+      "Stay current with latest ML research and techniques"
+    ],
+    "skills": [
+      "Python",
+      "PyTorch",
+      "NLP",
+      "Transformers",
+      "SQL",
+      "Docker",
+      "Kubernetes"
+    ],
+    "postedDate": "2026-02-14",
+    "remote": true
+  },
+  {
+    "id": "3",
+    "title": "Product Designer",
+    "company": "Decimal AI",
+    "department": "Design",
+    "location": "San Francisco, CA",
+    "type": "Full-time",
+    "level": "Mid",
+    "salary": {
+      "min": 130000,
+      "max": 180000,
+      "currency": "USD"
+    },
+    "description": "We're seeking a Product Designer to craft intuitive, delightful experiences for our career platform. You'll own the design process end-to-end, from research and ideation to high-fidelity prototypes.",
+    "requirements": [
+      "3+ years of product design experience",
+      "Strong portfolio demonstrating user-centered design",
+      "Proficiency in Figma and modern design tools",
+      "Experience with design systems and component libraries",
+      "Understanding of accessibility best practices"
+    ],
+    "responsibilities": [
+      "Lead design for key product features and flows",
+      "Conduct user research and usability testing",
+      "Create wireframes, prototypes, and high-fidelity designs",
+      "Collaborate closely with engineering and product teams",
+      "Maintain and evolve the design system"
+    ],
+    "skills": [
+      "Figma",
+      "User Research",
+      "Prototyping",
+      "Design Systems",
+      "Accessibility",
+      "HTML/CSS"
+    ],
+    "postedDate": "2026-02-15",
+    "remote": false
+  },
+  {
+    "id": "4",
+    "title": "VP of Engineering",
+    "company": "Decimal AI",
+    "department": "Engineering",
+    "location": "San Francisco, CA",
+    "type": "Full-time",
+    "level": "VP",
+    "salary": {
+      "min": 300000,
+      "max": 420000,
+      "currency": "USD"
+    },
+    "description": "We're looking for a VP of Engineering to lead our growing engineering organization. You'll set technical strategy, build world-class teams, and ensure we deliver exceptional products at scale.",
+    "requirements": [
+      "12+ years of software engineering experience, 5+ in leadership",
+      "Track record of scaling engineering teams (50+ engineers)",
+      "Experience with AI/ML product development",
+      "Strong understanding of distributed systems architecture",
+      "MBA or advanced technical degree preferred"
+    ],
+    "responsibilities": [
+      "Define and execute the engineering vision and strategy",
+      "Recruit, develop, and retain top engineering talent",
+      "Drive engineering culture, processes, and best practices",
+      "Partner with CEO and product leadership on roadmap",
+      "Oversee technical architecture and infrastructure decisions"
+    ],
+    "skills": [
+      "Engineering Leadership",
+      "System Design",
+      "Team Building",
+      "Strategic Planning",
+      "AI/ML"
+    ],
+    "postedDate": "2026-02-05",
+    "remote": false
+  },
+  {
+    "id": "5",
+    "title": "Junior Frontend Developer",
+    "company": "Decimal AI",
+    "department": "Engineering",
+    "location": "Austin, TX",
+    "type": "Full-time",
+    "level": "Entry",
+    "salary": {
+      "min": 80000,
+      "max": 110000,
+      "currency": "USD"
+    },
+    "description": "Great opportunity for an early-career developer to join our frontend team. You'll build beautiful, responsive UIs and learn from experienced engineers in a fast-paced startup environment.",
+    "requirements": [
+      "0-2 years of professional experience or recent CS graduate",
+      "Knowledge of HTML, CSS, and JavaScript",
+      "Familiarity with React or similar frontend frameworks",
+      "Eagerness to learn and grow",
+      "Strong communication skills"
+    ],
+    "responsibilities": [
+      "Build and maintain frontend components using React",
+      "Collaborate with designers to implement pixel-perfect UIs",
+      "Write unit and integration tests",
+      "Participate in code reviews and team discussions",
+      "Learn and adopt best practices in frontend development"
+    ],
+    "skills": [
+      "JavaScript",
+      "React",
+      "HTML",
+      "CSS",
+      "Git"
+    ],
+    "postedDate": "2026-02-14",
+    "remote": true
+  },
+  {
+    "id": "6",
+    "title": "Registered Nurse - ICU",
+    "company": "Bay Area Medical Center",
+    "department": "Healthcare",
+    "location": "San Jose, CA",
+    "type": "Full-time",
+    "level": "Mid",
+    "salary": {
+      "min": 95000,
+      "max": 130000,
+      "currency": "USD"
+    },
+    "description": "Seeking an experienced ICU Registered Nurse to provide critical care to patients. You'll work in a state-of-the-art facility with a collaborative multidisciplinary team.",
+    "requirements": [
+      "Active RN license in California",
+      "2+ years of ICU/critical care experience",
+      "BLS and ACLS certifications required",
+      "CCRN certification preferred",
+      "Strong clinical assessment skills"
+    ],
+    "responsibilities": [
+      "Provide direct patient care in the ICU setting",
+      "Monitor and assess patient conditions continuously",
+      "Administer medications and treatments per physician orders",
+      "Collaborate with physicians and healthcare team members",
+      "Document patient care accurately and thoroughly"
+    ],
+    "skills": [
+      "Critical Care",
+      "Patient Assessment",
+      "IV Therapy",
+      "Ventilator Management",
+      "EHR Systems"
+    ],
+    "postedDate": "2026-02-07",
+    "remote": false
+  },
+  {
+    "id": "7",
+    "title": "Data Analyst",
+    "company": "Decimal AI",
+    "department": "AI & Data Science",
+    "location": "Chicago, IL",
+    "type": "Full-time",
+    "level": "Entry",
+    "salary": {
+      "min": 75000,
+      "max": 100000,
+      "currency": "USD"
+    },
+    "description": "Join our data team to analyze trends, build dashboards, and provide insights that drive product decisions. Perfect role for someone who loves turning data into stories.",
+    "requirements": [
+      "1+ years of data analysis experience or relevant degree",
+      "Proficiency in SQL and Excel/Google Sheets",
+      "Experience with data visualization tools (Tableau, Looker)",
+      "Basic knowledge of Python or R",
+      "Strong analytical and problem-solving skills"
+    ],
+    "responsibilities": [
+      "Analyze product metrics and user behavior data",
+      "Build and maintain dashboards and reports",
+      "Identify trends and provide actionable insights",
+      "Collaborate with product and engineering teams",
+      "Support A/B testing and experimentation"
+    ],
+    "skills": [
+      "SQL",
+      "Python",
+      "Tableau",
+      "Excel",
+      "Statistics",
+      "Data Visualization"
+    ],
+    "postedDate": "2026-02-13",
+    "remote": true
+  },
+  {
+    "id": "8",
+    "title": "DevOps Engineer",
+    "company": "Decimal AI",
+    "department": "Engineering",
+    "location": "Seattle, WA",
+    "type": "Full-time",
+    "level": "Senior",
+    "salary": {
+      "min": 170000,
+      "max": 230000,
+      "currency": "USD"
+    },
+    "description": "We need a DevOps Engineer to build and maintain our cloud infrastructure, CI/CD pipelines, and monitoring systems. You'll ensure our platform is reliable, scalable, and secure.",
+    "requirements": [
+      "5+ years of DevOps/SRE experience",
+      "Deep expertise with AWS or GCP",
+      "Experience with Kubernetes and containerization",
+      "Strong scripting skills (Bash, Python)",
+      "Experience with infrastructure-as-code (Terraform, Pulumi)"
+    ],
+    "responsibilities": [
+      "Design and manage cloud infrastructure on AWS",
+      "Build and optimize CI/CD pipelines",
+      "Implement monitoring, alerting, and incident response",
+      "Improve system reliability and reduce downtime",
+      "Collaborate with engineering on deployment best practices"
+    ],
+    "skills": [
+      "AWS",
+      "Kubernetes",
+      "Docker",
+      "Terraform",
+      "CI/CD",
+      "Linux",
+      "Python"
+    ],
+    "postedDate": "2026-02-06",
+    "remote": true
+  },
+  {
+    "id": "9",
+    "title": "Marketing Manager",
+    "company": "Decimal AI",
+    "department": "Marketing",
+    "location": "New York, NY",
+    "type": "Full-time",
+    "level": "Manager",
+    "salary": {
+      "min": 120000,
+      "max": 160000,
+      "currency": "USD"
+    },
+    "description": "Lead our marketing efforts to grow brand awareness and drive user acquisition. You'll own the marketing strategy across multiple channels and build a high-performing team.",
+    "requirements": [
+      "5+ years of marketing experience, 2+ in management",
+      "Proven track record in B2B or B2C SaaS marketing",
+      "Experience with digital marketing channels (SEO, SEM, social)",
+      "Strong analytical skills and data-driven mindset",
+      "Excellent written and verbal communication"
+    ],
+    "responsibilities": [
+      "Develop and execute marketing strategy and campaigns",
+      "Manage marketing budget and measure ROI",
+      "Lead content marketing, SEO, and paid acquisition",
+      "Build and mentor the marketing team",
+      "Collaborate with product and sales on go-to-market strategy"
+    ],
+    "skills": [
+      "Digital Marketing",
+      "SEO",
+      "Content Strategy",
+      "Analytics",
+      "Team Leadership",
+      "HubSpot"
+    ],
+    "postedDate": "2026-02-04",
+    "remote": false
+  },
+  {
+    "id": "10",
+    "title": "Backend Engineer",
+    "company": "Decimal AI",
+    "department": "Engineering",
+    "location": "San Francisco, CA",
+    "type": "Full-time",
+    "level": "Mid",
+    "salary": {
+      "min": 150000,
+      "max": 200000,
+      "currency": "USD"
+    },
+    "description": "Build robust, scalable backend services that power our career platform. You'll work with modern technologies and tackle interesting distributed systems challenges.",
+    "requirements": [
+      "3+ years of backend development experience",
+      "Strong proficiency in Python, Go, or Node.js",
+      "Experience with relational and NoSQL databases",
+      "Understanding of microservices architecture",
+      "Experience with message queues and async processing"
+    ],
+    "responsibilities": [
+      "Design and implement RESTful APIs and microservices",
+      "Optimize database queries and data models",
+      "Build scalable data processing pipelines",
+      "Write comprehensive tests and documentation",
+      "Participate in on-call rotation and incident response"
+    ],
+    "skills": [
+      "Python",
+      "Go",
+      "PostgreSQL",
+      "Redis",
+      "gRPC",
+      "Docker",
+      "AWS"
+    ],
+    "postedDate": "2026-02-12",
+    "remote": true
+  },
+  {
+    "id": "11",
+    "title": "Financial Analyst",
+    "company": "Decimal AI",
+    "department": "Finance",
+    "location": "New York, NY",
+    "type": "Full-time",
+    "level": "Mid",
+    "salary": {
+      "min": 100000,
+      "max": 140000,
+      "currency": "USD"
+    },
+    "description": "Support financial planning, budgeting, and analysis for a high-growth AI startup. You'll partner with leadership to drive strategic financial decisions.",
+    "requirements": [
+      "3+ years of financial analysis experience",
+      "Strong Excel and financial modeling skills",
+      "Experience with FP&A processes and budgeting",
+      "Bachelor's degree in Finance, Accounting, or Economics",
+      "CFA or MBA preferred"
+    ],
+    "responsibilities": [
+      "Build and maintain financial models and forecasts",
+      "Prepare monthly financial reports and variance analysis",
+      "Support fundraising and investor relations activities",
+      "Analyze business metrics and provide strategic insights",
+      "Partner with department leads on budget planning"
+    ],
+    "skills": [
+      "Financial Modeling",
+      "Excel",
+      "FP&A",
+      "Budgeting",
+      "SQL",
+      "Tableau"
+    ],
+    "postedDate": "2026-02-03",
+    "remote": false
+  },
+  {
+    "id": "12",
+    "title": "Nurse Practitioner - Primary Care",
+    "company": "HealthFirst Clinic",
+    "department": "Healthcare",
+    "location": "Portland, OR",
+    "type": "Full-time",
+    "level": "Senior",
+    "salary": {
+      "min": 115000,
+      "max": 155000,
+      "currency": "USD"
+    },
+    "description": "Join our primary care practice as a Nurse Practitioner. Provide comprehensive care to patients across the lifespan in a supportive, patient-centered environment.",
+    "requirements": [
+      "Master's degree in Nursing (MSN)",
+      "Active NP license in Oregon",
+      "2+ years of primary care NP experience",
+      "DEA license and prescriptive authority",
+      "BLS certification required"
+    ],
+    "responsibilities": [
+      "Conduct patient assessments and diagnose conditions",
+      "Develop and implement treatment plans",
+      "Prescribe medications and order diagnostic tests",
+      "Provide patient education and preventive care",
+      "Collaborate with physicians and healthcare team"
+    ],
+    "skills": [
+      "Primary Care",
+      "Patient Assessment",
+      "Prescriptive Authority",
+      "EHR",
+      "Health Education"
+    ],
+    "postedDate": "2026-02-01",
+    "remote": false
+  },
+  {
+    "id": "13",
+    "title": "Product Manager",
+    "company": "Decimal AI",
+    "department": "Product",
+    "location": "San Francisco, CA",
+    "type": "Full-time",
+    "level": "Senior",
+    "salary": {
+      "min": 160000,
+      "max": 220000,
+      "currency": "USD"
+    },
+    "description": "Own the product vision and roadmap for our core career matching platform. You'll work at the intersection of AI, user experience, and business strategy.",
+    "requirements": [
+      "5+ years of product management experience",
+      "Experience with AI/ML-powered products",
+      "Strong analytical skills and data-driven decision making",
+      "Excellent stakeholder management abilities",
+      "Technical background or strong technical aptitude"
+    ],
+    "responsibilities": [
+      "Define product strategy and prioritize the roadmap",
+      "Write detailed product requirements and specifications",
+      "Analyze user feedback and product metrics",
+      "Coordinate cross-functional launches with engineering and design",
+      "Present product updates to leadership and stakeholders"
+    ],
+    "skills": [
+      "Product Strategy",
+      "User Research",
+      "Data Analysis",
+      "Agile",
+      "Roadmapping",
+      "SQL"
+    ],
+    "postedDate": "2026-02-11",
+    "remote": true
+  },
+  {
+    "id": "14",
+    "title": "Sales Development Representative",
+    "company": "Decimal AI",
+    "department": "Sales",
+    "location": "New York, NY",
+    "type": "Full-time",
+    "level": "Entry",
+    "salary": {
+      "min": 60000,
+      "max": 85000,
+      "currency": "USD"
+    },
+    "description": "Be the first point of contact for potential customers. This is a great entry point into tech sales with significant growth opportunities and earning potential.",
+    "requirements": [
+      "0-2 years of sales or customer-facing experience",
+      "Excellent verbal and written communication skills",
+      "Self-motivated with a competitive spirit",
+      "Bachelor's degree preferred",
+      "Interest in AI and technology"
+    ],
+    "responsibilities": [
+      "Prospect and qualify inbound and outbound leads",
+      "Conduct outreach via email, phone, and LinkedIn",
+      "Schedule demos and meetings for account executives",
+      "Maintain accurate records in CRM (Salesforce)",
+      "Meet and exceed monthly activity and pipeline targets"
+    ],
+    "skills": [
+      "Sales",
+      "Communication",
+      "Salesforce",
+      "Cold Outreach",
+      "Lead Qualification"
+    ],
+    "postedDate": "2026-02-10",
+    "remote": false
+  },
+  {
+    "id": "15",
+    "title": "Staff Software Engineer",
+    "company": "Decimal AI",
+    "department": "Engineering",
+    "location": "San Francisco, CA",
+    "type": "Full-time",
+    "level": "Lead",
+    "salary": {
+      "min": 220000,
+      "max": 300000,
+      "currency": "USD"
+    },
+    "description": "As a Staff Engineer, you'll drive technical excellence across the organization. You'll tackle our hardest engineering challenges and set the standard for code quality and system design.",
+    "requirements": [
+      "8+ years of software engineering experience",
+      "Expertise in distributed systems and system design",
+      "Strong proficiency in multiple programming languages",
+      "Experience leading large-scale technical initiatives",
+      "Track record of mentoring and growing engineers"
+    ],
+    "responsibilities": [
+      "Lead design and implementation of critical systems",
+      "Drive technical strategy and architectural decisions",
+      "Mentor senior engineers and raise the technical bar",
+      "Collaborate across teams to solve complex problems",
+      "Contribute to hiring and engineering culture"
+    ],
+    "skills": [
+      "System Design",
+      "Distributed Systems",
+      "TypeScript",
+      "Go",
+      "PostgreSQL",
+      "Kubernetes",
+      "Architecture"
+    ],
+    "postedDate": "2026-02-09",
+    "remote": true
+  },
+  {
+    "id": "16",
+    "title": "UX Researcher",
+    "company": "Decimal AI",
+    "department": "Design",
+    "location": "San Francisco, CA",
+    "type": "Full-time",
+    "level": "Mid",
+    "salary": {
+      "min": 120000,
+      "max": 165000,
+      "currency": "USD"
+    },
+    "description": "Help us deeply understand our users through rigorous research. Your insights will directly shape the product experience for millions of job seekers worldwide.",
+    "requirements": [
+      "3+ years of UX research experience",
+      "Experience with qualitative and quantitative methods",
+      "Strong skills in user interviews and usability testing",
+      "Ability to synthesize findings into actionable insights",
+      "Experience with research tools (UserTesting, Maze, etc.)"
+    ],
+    "responsibilities": [
+      "Plan and conduct user research studies",
+      "Analyze research data and present findings",
+      "Create user personas, journey maps, and research reports",
+      "Collaborate with designers and PMs on product decisions",
+      "Advocate for user needs across the organization"
+    ],
+    "skills": [
+      "User Research",
+      "Usability Testing",
+      "Survey Design",
+      "Data Analysis",
+      "Figma",
+      "Miro"
+    ],
+    "postedDate": "2026-02-08",
+    "remote": false
+  },
+  {
+    "id": "17",
+    "title": "Pharmacy Technician",
+    "company": "MedPlus Pharmacy",
+    "department": "Healthcare",
+    "location": "Denver, CO",
+    "type": "Full-time",
+    "level": "Entry",
+    "salary": {
+      "min": 38000,
+      "max": 48000,
+      "currency": "USD"
+    },
+    "description": "Support pharmacists in dispensing medications and providing excellent patient care. Great opportunity for certified pharmacy technicians looking for a supportive team environment.",
+    "requirements": [
+      "Pharmacy Technician certification (CPhT)",
+      "High school diploma or equivalent",
+      "Knowledge of pharmacy law and regulations",
+      "Basic math and computer skills",
+      "Customer service experience preferred"
+    ],
+    "responsibilities": [
+      "Assist pharmacists with prescription dispensing",
+      "Process insurance claims and handle cash register",
+      "Maintain inventory and restock medications",
+      "Provide friendly customer service to patients",
+      "Ensure compliance with pharmacy regulations"
+    ],
+    "skills": [
+      "Pharmacy Operations",
+      "Customer Service",
+      "Inventory Management",
+      "Insurance Processing",
+      "HIPAA"
+    ],
+    "postedDate": "2026-02-06",
+    "remote": false
+  },
+  {
+    "id": "18",
+    "title": "Director of Data Engineering",
+    "company": "Decimal AI",
+    "department": "Engineering",
+    "location": "San Francisco, CA",
+    "type": "Full-time",
+    "level": "Director",
+    "salary": {
+      "min": 250000,
+      "max": 350000,
+      "currency": "USD"
+    },
+    "description": "Lead our data engineering team and build the data infrastructure that powers our AI products. You'll define the data strategy and ensure we can process and analyze data at massive scale.",
+    "requirements": [
+      "10+ years of data engineering experience, 3+ in leadership",
+      "Expert knowledge of data warehousing and ETL/ELT patterns",
+      "Experience with big data technologies (Spark, Kafka, Airflow)",
+      "Strong understanding of data modeling and governance",
+      "Experience scaling data teams and infrastructure"
+    ],
+    "responsibilities": [
+      "Lead and grow the data engineering team",
+      "Define data architecture and infrastructure strategy",
+      "Build scalable data pipelines and warehousing solutions",
+      "Ensure data quality, governance, and compliance",
+      "Partner with AI/ML teams on data requirements"
+    ],
+    "skills": [
+      "Spark",
+      "Kafka",
+      "Airflow",
+      "Snowflake",
+      "Python",
+      "SQL",
+      "Data Modeling",
+      "Team Leadership"
+    ],
+    "postedDate": "2026-02-02",
+    "remote": true
+  },
+  {
+    "id": "19",
+    "title": "Customer Success Manager",
+    "company": "Decimal AI",
+    "department": "Customer Success",
+    "location": "Boston, MA",
+    "type": "Full-time",
+    "level": "Mid",
+    "salary": {
+      "min": 90000,
+      "max": 125000,
+      "currency": "USD"
+    },
+    "description": "Be the trusted advisor for our enterprise customers. You'll ensure they get maximum value from our platform and build long-lasting relationships that drive retention and growth.",
+    "requirements": [
+      "3+ years in customer success or account management",
+      "Experience with enterprise SaaS products",
+      "Strong relationship-building and communication skills",
+      "Analytical mindset with ability to use data to tell stories",
+      "Experience with CS tools (Gainsight, ChurnZero)"
+    ],
+    "responsibilities": [
+      "Manage a portfolio of enterprise customer accounts",
+      "Conduct onboarding, training, and business reviews",
+      "Monitor customer health metrics and drive adoption",
+      "Identify upsell and expansion opportunities",
+      "Advocate for customer needs with product team"
+    ],
+    "skills": [
+      "Customer Success",
+      "Account Management",
+      "SaaS",
+      "Communication",
+      "Gainsight",
+      "Data Analysis"
+    ],
+    "postedDate": "2026-02-09",
+    "remote": true
+  },
+  {
+    "id": "20",
+    "title": "Civil Engineer",
+    "company": "BuildRight Construction",
+    "department": "Engineering",
+    "location": "Houston, TX",
+    "type": "Full-time",
+    "level": "Mid",
+    "salary": {
+      "min": 85000,
+      "max": 115000,
+      "currency": "USD"
+    },
+    "description": "Design and oversee construction projects including roads, bridges, and buildings. You'll work on exciting infrastructure projects that shape the city's future.",
+    "requirements": [
+      "PE license or ability to obtain within 1 year",
+      "3+ years of civil engineering experience",
+      "Proficiency in AutoCAD and Civil 3D",
+      "Knowledge of building codes and regulations",
+      "BS in Civil Engineering"
+    ],
+    "responsibilities": [
+      "Design structural and infrastructure systems",
+      "Prepare construction drawings and specifications",
+      "Conduct site inspections and quality control",
+      "Manage project budgets and timelines",
+      "Coordinate with contractors and government agencies"
+    ],
+    "skills": [
+      "AutoCAD",
+      "Civil 3D",
+      "Structural Analysis",
+      "Project Management",
+      "Building Codes"
+    ],
+    "postedDate": "2026-02-05",
+    "remote": false
+  },
+  {
+    "id": "21",
+    "title": "AI Research Scientist",
+    "company": "Decimal AI",
+    "department": "AI & Data Science",
+    "location": "San Francisco, CA",
+    "type": "Full-time",
+    "level": "Senior",
+    "salary": {
+      "min": 200000,
+      "max": 280000,
+      "currency": "USD"
+    },
+    "description": "Push the boundaries of AI research in NLP, recommendation systems, and information retrieval. Publish papers, develop novel algorithms, and see your research deployed at scale.",
+    "requirements": [
+      "PhD in Computer Science, ML, or related field",
+      "Publication record in top-tier venues (NeurIPS, ICML, ACL)",
+      "Deep expertise in NLP and/or recommendation systems",
+      "Strong programming skills in Python",
+      "Experience transitioning research to production"
+    ],
+    "responsibilities": [
+      "Conduct original research in AI/ML",
+      "Develop novel algorithms for job-resume matching",
+      "Publish research at top conferences and journals",
+      "Collaborate with engineering to productionize research",
+      "Mentor junior researchers and interns"
+    ],
+    "skills": [
+      "Deep Learning",
+      "NLP",
+      "PyTorch",
+      "Research",
+      "Python",
+      "Statistics",
+      "Information Retrieval"
+    ],
+    "postedDate": "2026-02-04",
+    "remote": true
+  },
+  {
+    "id": "22",
+    "title": "Mechanical Engineer",
+    "company": "TechManufacture Inc",
+    "department": "Engineering",
+    "location": "Detroit, MI",
+    "type": "Full-time",
+    "level": "Mid",
+    "salary": {
+      "min": 80000,
+      "max": 110000,
+      "currency": "USD"
+    },
+    "description": "Design and develop mechanical systems for automotive manufacturing. You'll work on cutting-edge electric vehicle components and production processes.",
+    "requirements": [
+      "3+ years of mechanical engineering experience",
+      "Proficiency in SolidWorks or CATIA",
+      "Knowledge of GD&T and manufacturing processes",
+      "Experience with FEA and CFD analysis",
+      "BS in Mechanical Engineering"
+    ],
+    "responsibilities": [
+      "Design mechanical components and assemblies",
+      "Conduct stress analysis and testing",
+      "Create engineering drawings and BOMs",
+      "Support prototype builds and manufacturing",
+      "Collaborate with cross-functional teams on product development"
+    ],
+    "skills": [
+      "SolidWorks",
+      "FEA",
+      "GD&T",
+      "Manufacturing",
+      "3D Modeling",
+      "Material Science"
+    ],
+    "postedDate": "2026-02-03",
+    "remote": false
+  },
+  {
+    "id": "23",
+    "title": "HR Business Partner",
+    "company": "Decimal AI",
+    "department": "Human Resources",
+    "location": "San Francisco, CA",
+    "type": "Full-time",
+    "level": "Senior",
+    "salary": {
+      "min": 130000,
+      "max": 175000,
+      "currency": "USD"
+    },
+    "description": "Partner with business leaders to develop people strategies that support growth and create an exceptional employee experience at our fast-growing AI company.",
+    "requirements": [
+      "5+ years of HR business partner experience",
+      "Experience in high-growth tech or startup environments",
+      "Strong knowledge of employment law and HR best practices",
+      "Experience with performance management and compensation",
+      "PHR/SPHR certification preferred"
+    ],
+    "responsibilities": [
+      "Serve as strategic HR partner to department leaders",
+      "Drive talent management and succession planning",
+      "Lead performance review cycles and compensation programs",
+      "Handle employee relations and conflict resolution",
+      "Support organizational design and workforce planning"
+    ],
+    "skills": [
+      "HR Strategy",
+      "Talent Management",
+      "Employee Relations",
+      "Compensation",
+      "Employment Law",
+      "HRIS"
+    ],
+    "postedDate": "2026-02-08",
+    "remote": false
+  },
+  {
+    "id": "24",
+    "title": "Frontend Engineer",
+    "company": "Decimal AI",
+    "department": "Engineering",
+    "location": "Remote",
+    "type": "Full-time",
+    "level": "Mid",
+    "salary": {
+      "min": 140000,
+      "max": 190000,
+      "currency": "USD"
+    },
+    "description": "Build stunning, performant user interfaces for our career platform. You'll work closely with designers to create pixel-perfect experiences that delight millions of users.",
+    "requirements": [
+      "3+ years of frontend development experience",
+      "Expert-level React and TypeScript skills",
+      "Deep knowledge of CSS, animations, and responsive design",
+      "Experience with modern build tools and testing frameworks",
+      "Understanding of web performance optimization"
+    ],
+    "responsibilities": [
+      "Implement complex UI components and interactions",
+      "Optimize frontend performance and bundle size",
+      "Build and maintain component library and design system",
+      "Write comprehensive unit and E2E tests",
+      "Collaborate with backend engineers on API design"
+    ],
+    "skills": [
+      "React",
+      "TypeScript",
+      "CSS",
+      "Next.js",
+      "Testing",
+      "Performance",
+      "Accessibility"
+    ],
+    "postedDate": "2026-02-11",
+    "remote": true
+  },
+  {
+    "id": "25",
+    "title": "Electrical Engineer",
+    "company": "PowerGrid Solutions",
+    "department": "Engineering",
+    "location": "Phoenix, AZ",
+    "type": "Full-time",
+    "level": "Senior",
+    "salary": {
+      "min": 105000,
+      "max": 145000,
+      "currency": "USD"
+    },
+    "description": "Design power distribution systems for commercial and industrial facilities. You'll work on renewable energy integration and smart grid technologies.",
+    "requirements": [
+      "5+ years of electrical engineering experience",
+      "PE license required",
+      "Proficiency in power systems analysis software",
+      "Knowledge of NEC and IEEE standards",
+      "BS in Electrical Engineering"
+    ],
+    "responsibilities": [
+      "Design electrical power distribution systems",
+      "Perform load calculations and arc flash studies",
+      "Create electrical construction documents",
+      "Conduct site surveys and inspections",
+      "Mentor junior engineers"
+    ],
+    "skills": [
+      "Power Systems",
+      "AutoCAD Electrical",
+      "ETAP",
+      "NEC Code",
+      "Renewable Energy",
+      "PLC Programming"
+    ],
+    "postedDate": "2026-02-02",
+    "remote": false
+  },
+  {
+    "id": "26",
+    "title": "Content Marketing Specialist",
+    "company": "Decimal AI",
+    "department": "Marketing",
+    "location": "Remote",
+    "type": "Full-time",
+    "level": "Mid",
+    "salary": {
+      "min": 85000,
+      "max": 115000,
+      "currency": "USD"
+    },
+    "description": "Create compelling content that educates and engages our audience. From blog posts and whitepapers to social media and email campaigns, you'll tell the Decimal story.",
+    "requirements": [
+      "3+ years of content marketing experience",
+      "Exceptional writing and editing skills",
+      "Experience with SEO and content analytics",
+      "Familiarity with marketing automation tools",
+      "Portfolio of published content required"
+    ],
+    "responsibilities": [
+      "Write blog posts, case studies, and whitepapers",
+      "Manage content calendar and editorial workflow",
+      "Optimize content for SEO and organic traffic",
+      "Collaborate with design on visual content",
+      "Track content performance and report on KPIs"
+    ],
+    "skills": [
+      "Content Writing",
+      "SEO",
+      "Content Strategy",
+      "HubSpot",
+      "Google Analytics",
+      "Copywriting"
+    ],
+    "postedDate": "2026-02-10",
+    "remote": true
+  },
+  {
+    "id": "27",
+    "title": "Medical Laboratory Technician",
+    "company": "LabCorp Diagnostics",
+    "department": "Healthcare",
+    "location": "Atlanta, GA",
+    "type": "Full-time",
+    "level": "Entry",
+    "salary": {
+      "min": 42000,
+      "max": 58000,
+      "currency": "USD"
+    },
+    "description": "Perform laboratory tests to help diagnose and treat diseases. You'll work with sophisticated equipment in a CLIA-certified clinical laboratory.",
+    "requirements": [
+      "Associate's degree in Medical Laboratory Technology",
+      "MLT(ASCP) certification preferred",
+      "Knowledge of clinical laboratory procedures",
+      "Attention to detail and quality mindset",
+      "Basic computer skills"
+    ],
+    "responsibilities": [
+      "Perform routine and specialized laboratory tests",
+      "Calibrate and maintain lab equipment",
+      "Ensure quality control and quality assurance",
+      "Record and report test results accurately",
+      "Follow safety protocols and CLIA regulations"
+    ],
+    "skills": [
+      "Clinical Lab",
+      "Quality Control",
+      "Hematology",
+      "Chemistry Analysis",
+      "Lab Safety",
+      "LIMS"
+    ],
+    "postedDate": "2026-02-01",
+    "remote": false
+  },
+  {
+    "id": "28",
+    "title": "Security Engineer",
+    "company": "Decimal AI",
+    "department": "Engineering",
+    "location": "San Francisco, CA",
+    "type": "Full-time",
+    "level": "Senior",
+    "salary": {
+      "min": 180000,
+      "max": 250000,
+      "currency": "USD"
+    },
+    "description": "Protect our platform and users by building security into everything we do. You'll lead security initiatives, conduct threat modeling, and ensure we meet compliance requirements.",
+    "requirements": [
+      "5+ years of security engineering experience",
+      "Experience with cloud security (AWS/GCP)",
+      "Knowledge of OWASP Top 10 and common vulnerabilities",
+      "Experience with SOC 2, GDPR, or similar compliance frameworks",
+      "CISSP, CEH, or similar certifications preferred"
+    ],
+    "responsibilities": [
+      "Design and implement security controls and monitoring",
+      "Conduct security reviews and penetration testing",
+      "Lead incident response and vulnerability management",
+      "Ensure compliance with security standards and regulations",
+      "Educate engineering team on secure coding practices"
+    ],
+    "skills": [
+      "Application Security",
+      "Cloud Security",
+      "Penetration Testing",
+      "SIEM",
+      "Compliance",
+      "Cryptography"
+    ],
+    "postedDate": "2026-02-06",
+    "remote": true
+  },
+  {
+    "id": "29",
+    "title": "Executive Assistant to CEO",
+    "company": "Decimal AI",
+    "department": "Operations",
+    "location": "San Francisco, CA",
+    "type": "Full-time",
+    "level": "Mid",
+    "salary": {
+      "min": 90000,
+      "max": 130000,
+      "currency": "USD"
+    },
+    "description": "Provide high-level administrative support to our CEO. You'll be the operational backbone, managing calendars, coordinating meetings, and ensuring the CEO's time is optimized.",
+    "requirements": [
+      "3+ years as an executive assistant to C-level executives",
+      "Exceptional organizational and multitasking skills",
+      "Advanced proficiency in Google Workspace or Microsoft Office",
+      "Excellent written and verbal communication",
+      "Ability to handle confidential information with discretion"
+    ],
+    "responsibilities": [
+      "Manage CEO's calendar, travel, and expenses",
+      "Coordinate board meetings and prepare materials",
+      "Handle correspondence and communications",
+      "Plan company events and off-sites",
+      "Support special projects as needed"
+    ],
+    "skills": [
+      "Calendar Management",
+      "Travel Planning",
+      "Communication",
+      "Google Workspace",
+      "Project Coordination"
+    ],
+    "postedDate": "2026-02-07",
+    "remote": false
+  },
+  {
+    "id": "30",
+    "title": "iOS Engineer",
+    "company": "Decimal AI",
+    "department": "Engineering",
+    "location": "San Francisco, CA",
+    "type": "Full-time",
+    "level": "Mid",
+    "salary": {
+      "min": 150000,
+      "max": 200000,
+      "currency": "USD"
+    },
+    "description": "Build our native iOS application from the ground up. You'll create a world-class mobile experience for job seekers to discover and apply for their dream roles.",
+    "requirements": [
+      "3+ years of iOS development experience",
+      "Proficiency in Swift and SwiftUI",
+      "Experience with iOS frameworks (UIKit, Core Data, etc.)",
+      "Understanding of iOS design patterns (MVVM, Coordinator)",
+      "Published apps on the App Store"
+    ],
+    "responsibilities": [
+      "Design and build the Decimal iOS application",
+      "Implement complex UI with smooth animations",
+      "Integrate with backend APIs and push notifications",
+      "Write unit and UI tests for reliable releases",
+      "Collaborate with Android team on cross-platform features"
+    ],
+    "skills": [
+      "Swift",
+      "SwiftUI",
+      "UIKit",
+      "iOS",
+      "Core Data",
+      "XCTest",
+      "CI/CD"
+    ],
+    "postedDate": "2026-02-10",
+    "remote": false
+  },
+  {
+    "id": "31",
+    "title": "Accountant",
+    "company": "Decimal AI",
+    "department": "Finance",
+    "location": "New York, NY",
+    "type": "Full-time",
+    "level": "Mid",
+    "salary": {
+      "min": 80000,
+      "max": 110000,
+      "currency": "USD"
+    },
+    "description": "Manage day-to-day accounting operations including general ledger, accounts payable/receivable, and month-end close. You'll ensure accurate financial reporting for our growing company.",
+    "requirements": [
+      "3+ years of accounting experience",
+      "CPA certification or in progress",
+      "Strong knowledge of GAAP",
+      "Experience with accounting software (QuickBooks, NetSuite)",
+      "Bachelor's degree in Accounting"
+    ],
+    "responsibilities": [
+      "Manage general ledger and journal entries",
+      "Process accounts payable and receivable",
+      "Perform monthly reconciliations and close",
+      "Prepare financial statements and reports",
+      "Support annual audit and tax preparation"
+    ],
+    "skills": [
+      "GAAP",
+      "Financial Reporting",
+      "QuickBooks",
+      "Excel",
+      "Reconciliation",
+      "Tax Preparation"
+    ],
+    "postedDate": "2026-02-05",
+    "remote": false
+  },
+  {
+    "id": "32",
+    "title": "Technical Writer",
+    "company": "Decimal AI",
+    "department": "Product",
+    "location": "Remote",
+    "type": "Full-time",
+    "level": "Mid",
+    "salary": {
+      "min": 95000,
+      "max": 130000,
+      "currency": "USD"
+    },
+    "description": "Create clear, concise technical documentation for our platform. From API docs to user guides, you'll make complex technology accessible to diverse audiences.",
+    "requirements": [
+      "3+ years of technical writing experience",
+      "Experience documenting APIs and developer tools",
+      "Ability to understand and explain complex technical concepts",
+      "Proficiency with documentation tools (Notion, GitBook, etc.)",
+      "Basic understanding of programming concepts"
+    ],
+    "responsibilities": [
+      "Write and maintain API documentation",
+      "Create user guides, tutorials, and how-to articles",
+      "Collaborate with engineers to document new features",
+      "Maintain documentation style guide and standards",
+      "Gather feedback and improve documentation quality"
+    ],
+    "skills": [
+      "Technical Writing",
+      "API Documentation",
+      "Markdown",
+      "Git",
+      "Content Management",
+      "Information Architecture"
+    ],
+    "postedDate": "2026-02-09",
+    "remote": true
+  },
+  {
+    "id": "33",
+    "title": "Physical Therapist",
+    "company": "ActiveCare Rehabilitation",
+    "department": "Healthcare",
+    "location": "Miami, FL",
+    "type": "Full-time",
+    "level": "Mid",
+    "salary": {
+      "min": 78000,
+      "max": 100000,
+      "currency": "USD"
+    },
+    "description": "Help patients recover from injuries and improve mobility through evidence-based physical therapy. You'll work in an outpatient orthopedic setting with a diverse patient population.",
+    "requirements": [
+      "Doctor of Physical Therapy (DPT) degree",
+      "Active PT license in Florida",
+      "Experience in orthopedic or sports rehabilitation",
+      "Strong manual therapy skills",
+      "BLS certification required"
+    ],
+    "responsibilities": [
+      "Evaluate patients and develop treatment plans",
+      "Perform therapeutic exercises and manual therapy",
+      "Document patient progress and outcomes",
+      "Educate patients on home exercise programs",
+      "Collaborate with physicians on patient care plans"
+    ],
+    "skills": [
+      "Orthopedic Rehab",
+      "Manual Therapy",
+      "Exercise Prescription",
+      "Patient Education",
+      "EMR Documentation"
+    ],
+    "postedDate": "2026-02-04",
+    "remote": false
+  },
+  {
+    "id": "34",
+    "title": "QA Engineer",
+    "company": "Decimal AI",
+    "department": "Engineering",
+    "location": "Austin, TX",
+    "type": "Full-time",
+    "level": "Mid",
+    "salary": {
+      "min": 110000,
+      "max": 155000,
+      "currency": "USD"
+    },
+    "description": "Ensure the quality and reliability of our platform through comprehensive testing strategies. You'll build test automation frameworks and champion quality across the engineering org.",
+    "requirements": [
+      "3+ years of QA engineering experience",
+      "Experience with test automation (Cypress, Playwright, Selenium)",
+      "Strong programming skills in TypeScript or Python",
+      "Experience with API testing and performance testing",
+      "Understanding of CI/CD and DevOps practices"
+    ],
+    "responsibilities": [
+      "Design and implement test automation frameworks",
+      "Write and maintain automated tests (E2E, integration, API)",
+      "Perform manual testing for complex features",
+      "Track and report bugs, drive resolution",
+      "Collaborate with engineering to improve testability"
+    ],
+    "skills": [
+      "Test Automation",
+      "Cypress",
+      "Playwright",
+      "TypeScript",
+      "API Testing",
+      "CI/CD",
+      "JIRA"
+    ],
+    "postedDate": "2026-02-08",
+    "remote": true
+  },
+  {
+    "id": "35",
+    "title": "Head of Talent Acquisition",
+    "company": "Decimal AI",
+    "department": "Human Resources",
+    "location": "San Francisco, CA",
+    "type": "Full-time",
+    "level": "Director",
+    "salary": {
+      "min": 200000,
+      "max": 270000,
+      "currency": "USD"
+    },
+    "description": "Build and lead our recruiting function as we scale rapidly. You'll define hiring strategy, build the team, and ensure we attract world-class talent across all functions.",
+    "requirements": [
+      "8+ years of recruiting experience, 3+ in leadership",
+      "Experience scaling recruiting at high-growth tech companies",
+      "Strong understanding of technical and non-technical hiring",
+      "Experience with ATS and recruiting tools",
+      "Track record of building diverse and inclusive teams"
+    ],
+    "responsibilities": [
+      "Define and execute talent acquisition strategy",
+      "Build and manage the recruiting team",
+      "Partner with hiring managers on workforce planning",
+      "Optimize recruiting processes and metrics",
+      "Drive employer branding and candidate experience"
+    ],
+    "skills": [
+      "Recruiting Strategy",
+      "Team Leadership",
+      "Employer Branding",
+      "ATS",
+      "Workforce Planning",
+      "DEI"
+    ],
+    "postedDate": "2026-02-03",
+    "remote": false
+  },
+  {
+    "id": "36",
+    "title": "Full Stack Engineer",
+    "company": "Decimal AI",
+    "department": "Engineering",
+    "location": "Remote",
+    "type": "Full-time",
+    "level": "Senior",
+    "salary": {
+      "min": 175000,
+      "max": 235000,
+      "currency": "USD"
+    },
+    "description": "Work across the entire stack to build features end-to-end. From database design to pixel-perfect UIs, you'll have the autonomy to own features from conception to deployment.",
+    "requirements": [
+      "5+ years of full-stack development experience",
+      "Strong proficiency in React/Next.js and Node.js",
+      "Experience with relational databases and data modeling",
+      "Understanding of cloud architecture and DevOps",
+      "Track record of shipping features independently"
+    ],
+    "responsibilities": [
+      "Build features end-to-end across frontend and backend",
+      "Design database schemas and API contracts",
+      "Optimize application performance and scalability",
+      "Participate in architecture discussions and code reviews",
+      "Mentor team members and share knowledge"
+    ],
+    "skills": [
+      "React",
+      "Next.js",
+      "Node.js",
+      "TypeScript",
+      "PostgreSQL",
+      "AWS",
+      "System Design"
+    ],
+    "postedDate": "2026-02-12",
+    "remote": true
+  },
+  {
+    "id": "37",
+    "title": "Graphic Designer",
+    "company": "Decimal AI",
+    "department": "Design",
+    "location": "New York, NY",
+    "type": "Full-time",
+    "level": "Mid",
+    "salary": {
+      "min": 85000,
+      "max": 120000,
+      "currency": "USD"
+    },
+    "description": "Create visual designs that bring our brand to life. From marketing materials to product illustrations, you'll shape how the world sees Decimal.",
+    "requirements": [
+      "3+ years of graphic design experience",
+      "Proficiency in Adobe Creative Suite and Figma",
+      "Strong typography and color theory skills",
+      "Experience with brand identity and marketing design",
+      "Portfolio demonstrating range and creativity"
+    ],
+    "responsibilities": [
+      "Design marketing collateral and social media assets",
+      "Create presentations and pitch deck designs",
+      "Develop brand guidelines and visual identity elements",
+      "Collaborate with marketing on campaign visuals",
+      "Support product team with UI illustrations and icons"
+    ],
+    "skills": [
+      "Adobe Creative Suite",
+      "Figma",
+      "Typography",
+      "Brand Design",
+      "Illustration",
+      "Motion Graphics"
+    ],
+    "postedDate": "2026-02-06",
+    "remote": false
+  },
+  {
+    "id": "38",
+    "title": "Dental Hygienist",
+    "company": "Smile Bright Dental",
+    "department": "Healthcare",
+    "location": "Charlotte, NC",
+    "type": "Part-time",
+    "level": "Mid",
+    "salary": {
+      "min": 60000,
+      "max": 82000,
+      "currency": "USD"
+    },
+    "description": "Provide preventive dental care and oral health education to patients. Join our friendly dental practice that values patient comfort and quality care.",
+    "requirements": [
+      "Associate's degree in Dental Hygiene",
+      "Active dental hygienist license in North Carolina",
+      "2+ years of clinical experience preferred",
+      "CPR/BLS certification",
+      "Excellent interpersonal skills"
+    ],
+    "responsibilities": [
+      "Perform dental cleanings and prophylaxis",
+      "Take and develop dental X-rays",
+      "Assess patient oral health and document findings",
+      "Educate patients on oral hygiene techniques",
+      "Assist dentist with procedures as needed"
+    ],
+    "skills": [
+      "Dental Hygiene",
+      "Radiography",
+      "Patient Education",
+      "Periodontal Assessment",
+      "Infection Control"
+    ],
+    "postedDate": "2026-02-02",
+    "remote": false
+  },
+  {
+    "id": "39",
+    "title": "Legal Counsel",
+    "company": "Decimal AI",
+    "department": "Legal",
+    "location": "San Francisco, CA",
+    "type": "Full-time",
+    "level": "Senior",
+    "salary": {
+      "min": 180000,
+      "max": 250000,
+      "currency": "USD"
+    },
+    "description": "Provide legal guidance on a wide range of matters including commercial contracts, IP, privacy, and employment law. You'll be a key advisor as we scale globally.",
+    "requirements": [
+      "JD from accredited law school, active bar membership",
+      "5+ years of legal experience, preferably in tech",
+      "Experience with commercial contracts and SaaS agreements",
+      "Knowledge of data privacy regulations (GDPR, CCPA)",
+      "Experience with IP and employment law"
+    ],
+    "responsibilities": [
+      "Draft and negotiate commercial agreements",
+      "Advise on data privacy and regulatory compliance",
+      "Support corporate governance and equity matters",
+      "Manage outside counsel relationships",
+      "Provide legal guidance on product and marketing initiatives"
+    ],
+    "skills": [
+      "Contract Law",
+      "Privacy Law",
+      "IP Law",
+      "Corporate Governance",
+      "SaaS Agreements",
+      "Negotiation"
+    ],
+    "postedDate": "2026-02-07",
+    "remote": false
+  },
+  {
+    "id": "40",
+    "title": "Android Engineer",
+    "company": "Decimal AI",
+    "department": "Engineering",
+    "location": "San Francisco, CA",
+    "type": "Full-time",
+    "level": "Mid",
+    "salary": {
+      "min": 150000,
+      "max": 200000,
+      "currency": "USD"
+    },
+    "description": "Build and maintain our Android application using modern Kotlin and Jetpack Compose. Create a seamless mobile experience for job seekers on the Android platform.",
+    "requirements": [
+      "3+ years of Android development experience",
+      "Proficiency in Kotlin and Jetpack Compose",
+      "Experience with Android architecture patterns (MVVM, MVI)",
+      "Understanding of Android lifecycle and memory management",
+      "Published apps on Google Play Store"
+    ],
+    "responsibilities": [
+      "Develop and maintain the Decimal Android application",
+      "Implement Material Design 3 UI components",
+      "Integrate with backend APIs and local storage",
+      "Optimize app performance and reduce crash rates",
+      "Collaborate with iOS team on feature parity"
+    ],
+    "skills": [
+      "Kotlin",
+      "Jetpack Compose",
+      "Android",
+      "Room",
+      "Coroutines",
+      "Material Design",
+      "CI/CD"
+    ],
+    "postedDate": "2026-02-11",
+    "remote": false
+  },
+  {
+    "id": "41",
+    "title": "Chief Technology Officer",
+    "company": "GreenTech Innovations",
+    "department": "Engineering",
+    "location": "San Francisco, CA",
+    "type": "Full-time",
+    "level": "C-Suite",
+    "salary": {
+      "min": 350000,
+      "max": 500000,
+      "currency": "USD"
+    },
+    "description": "Lead the technology vision for a rapidly growing cleantech startup. You'll build the engineering organization, drive innovation, and shape the technical strategy.",
+    "requirements": [
+      "15+ years in technology, 8+ in senior leadership",
+      "Experience as CTO or VP Engineering at a growth-stage company",
+      "Deep technical background in software engineering",
+      "Experience with AI/ML and data-intensive applications",
+      "Track record of recruiting and retaining top talent"
+    ],
+    "responsibilities": [
+      "Set technology vision, strategy, and roadmap",
+      "Build and lead the engineering and data science teams",
+      "Drive technical innovation and R&D initiatives",
+      "Partner with CEO on company strategy and fundraising",
+      "Ensure security, compliance, and technical excellence"
+    ],
+    "skills": [
+      "Technical Strategy",
+      "Engineering Leadership",
+      "AI/ML",
+      "System Architecture",
+      "Team Building",
+      "Fundraising"
+    ],
+    "postedDate": "2026-01-30",
+    "remote": false
+  },
+  {
+    "id": "42",
+    "title": "Social Media Manager",
+    "company": "Decimal AI",
+    "department": "Marketing",
+    "location": "Los Angeles, CA",
+    "type": "Full-time",
+    "level": "Entry",
+    "salary": {
+      "min": 65000,
+      "max": 90000,
+      "currency": "USD"
+    },
+    "description": "Own our social media presence across all platforms. Create engaging content, build community, and amplify the Decimal brand to attract talent and customers.",
+    "requirements": [
+      "1-3 years of social media management experience",
+      "Strong understanding of major social platforms",
+      "Excellent copywriting and visual storytelling skills",
+      "Experience with social media analytics tools",
+      "Creative mindset with an eye for trends"
+    ],
+    "responsibilities": [
+      "Create and schedule content across social platforms",
+      "Engage with followers and build community",
+      "Monitor social media trends and competitors",
+      "Track performance metrics and optimize strategy",
+      "Collaborate with marketing team on campaigns"
+    ],
+    "skills": [
+      "Social Media",
+      "Content Creation",
+      "Copywriting",
+      "Analytics",
+      "Community Management",
+      "Canva"
+    ],
+    "postedDate": "2026-02-12",
+    "remote": false
+  },
+  {
+    "id": "43",
+    "title": "Software Engineering Intern",
+    "company": "Decimal AI",
+    "department": "Engineering",
+    "location": "San Francisco, CA",
+    "type": "Internship",
+    "level": "Intern",
+    "salary": {
+      "min": 50000,
+      "max": 70000,
+      "currency": "USD"
+    },
+    "description": "Join us for a 12-week summer internship and work on real projects that impact millions of users. You'll be mentored by experienced engineers and get hands-on experience with cutting-edge technology.",
+    "requirements": [
+      "Currently pursuing a BS/MS in Computer Science or related field",
+      "Strong programming fundamentals in at least one language",
+      "Coursework in data structures and algorithms",
+      "Eagerness to learn and grow",
+      "Expected graduation within 2 years"
+    ],
+    "responsibilities": [
+      "Work on a real product feature from design to deployment",
+      "Participate in team stand-ups and code reviews",
+      "Present your project to the engineering team at the end of the internship",
+      "Learn from mentors and build professional network",
+      "Contribute to engineering documentation and best practices"
+    ],
+    "skills": [
+      "Programming Fundamentals",
+      "Data Structures",
+      "Algorithms",
+      "Problem Solving",
+      "Git"
+    ],
+    "postedDate": "2026-02-13",
+    "remote": false
+  },
+  {
+    "id": "44",
+    "title": "Supply Chain Analyst",
+    "company": "GlobalLogistics Corp",
+    "department": "Operations",
+    "location": "Dallas, TX",
+    "type": "Full-time",
+    "level": "Entry",
+    "salary": {
+      "min": 60000,
+      "max": 80000,
+      "currency": "USD"
+    },
+    "description": "Analyze and optimize our supply chain operations using data-driven approaches. You'll work on demand forecasting, inventory management, and logistics optimization.",
+    "requirements": [
+      "Bachelor's degree in Supply Chain, Operations, or Business",
+      "1+ years of supply chain or analytics experience",
+      "Proficiency in Excel and data analysis",
+      "Knowledge of ERP systems (SAP preferred)",
+      "Strong quantitative and problem-solving skills"
+    ],
+    "responsibilities": [
+      "Analyze supply chain performance metrics",
+      "Support demand planning and forecasting",
+      "Identify cost reduction and efficiency opportunities",
+      "Create reports and dashboards for stakeholders",
+      "Collaborate with procurement and logistics teams"
+    ],
+    "skills": [
+      "Supply Chain",
+      "SAP",
+      "Excel",
+      "Data Analysis",
+      "Demand Planning",
+      "Inventory Management"
+    ],
+    "postedDate": "2026-02-01",
+    "remote": false
+  },
+  {
+    "id": "45",
+    "title": "Platform Engineer",
+    "company": "Decimal AI",
+    "department": "Engineering",
+    "location": "Seattle, WA",
+    "type": "Full-time",
+    "level": "Senior",
+    "salary": {
+      "min": 180000,
+      "max": 240000,
+      "currency": "USD"
+    },
+    "description": "Build the developer platform that enables our engineering teams to ship faster and more reliably. You'll design and build internal tools, abstractions, and infrastructure.",
+    "requirements": [
+      "5+ years of platform or infrastructure engineering experience",
+      "Experience building developer tools and internal platforms",
+      "Strong knowledge of Kubernetes, containers, and cloud-native patterns",
+      "Proficiency in Go, Python, or TypeScript",
+      "Experience with observability and monitoring systems"
+    ],
+    "responsibilities": [
+      "Design and build internal developer platform",
+      "Create tooling and abstractions for service deployment",
+      "Improve developer experience and productivity",
+      "Implement observability and monitoring infrastructure",
+      "Drive platform adoption and gather feedback from teams"
+    ],
+    "skills": [
+      "Kubernetes",
+      "Go",
+      "Platform Engineering",
+      "Observability",
+      "Terraform",
+      "CI/CD",
+      "Service Mesh"
+    ],
+    "postedDate": "2026-02-09",
+    "remote": true
+  },
+  {
+    "id": "46",
+    "title": "Veterinary Technician",
+    "company": "PawsFirst Animal Hospital",
+    "department": "Healthcare",
+    "location": "Minneapolis, MN",
+    "type": "Full-time",
+    "level": "Entry",
+    "salary": {
+      "min": 35000,
+      "max": 48000,
+      "currency": "USD"
+    },
+    "description": "Assist veterinarians in providing medical care to animals. Join our compassionate team in a busy small animal practice that treats dogs, cats, and exotic pets.",
+    "requirements": [
+      "Associate's degree in Veterinary Technology",
+      "CVT/LVT/RVT certification preferred",
+      "Experience handling small animals",
+      "Knowledge of veterinary medical procedures",
+      "Compassionate and team-oriented"
+    ],
+    "responsibilities": [
+      "Assist with animal examinations and procedures",
+      "Administer medications and vaccines",
+      "Perform laboratory tests and diagnostics",
+      "Monitor anesthesia during surgical procedures",
+      "Educate pet owners on animal care and medications"
+    ],
+    "skills": [
+      "Veterinary Care",
+      "Animal Handling",
+      "Lab Diagnostics",
+      "Anesthesia Monitoring",
+      "Client Education"
+    ],
+    "postedDate": "2026-02-03",
+    "remote": false
+  },
+  {
+    "id": "47",
+    "title": "Data Engineer",
+    "company": "Decimal AI",
+    "department": "Engineering",
+    "location": "Chicago, IL",
+    "type": "Full-time",
+    "level": "Mid",
+    "salary": {
+      "min": 140000,
+      "max": 190000,
+      "currency": "USD"
+    },
+    "description": "Build and maintain the data infrastructure that fuels our AI products. You'll design data pipelines, optimize data warehouses, and ensure data quality at scale.",
+    "requirements": [
+      "3+ years of data engineering experience",
+      "Strong SQL and Python skills",
+      "Experience with data pipeline tools (Airflow, dbt)",
+      "Knowledge of data warehousing (Snowflake, BigQuery, Redshift)",
+      "Understanding of data modeling and ETL patterns"
+    ],
+    "responsibilities": [
+      "Design and build scalable data pipelines",
+      "Maintain and optimize data warehouse architecture",
+      "Implement data quality checks and monitoring",
+      "Support data scientists and analysts with data needs",
+      "Document data models, schemas, and data flows"
+    ],
+    "skills": [
+      "SQL",
+      "Python",
+      "Airflow",
+      "dbt",
+      "Snowflake",
+      "Spark",
+      "Data Modeling"
+    ],
+    "postedDate": "2026-02-10",
+    "remote": true
+  },
+  {
+    "id": "48",
+    "title": "Teacher - High School Mathematics",
+    "company": "Lincoln High School",
+    "department": "Education",
+    "location": "Sacramento, CA",
+    "type": "Full-time",
+    "level": "Mid",
+    "salary": {
+      "min": 55000,
+      "max": 85000,
+      "currency": "USD"
+    },
+    "description": "Teach algebra, geometry, and calculus to high school students. Inspire the next generation of mathematicians and problem solvers in a supportive school community.",
+    "requirements": [
+      "Bachelor's degree in Mathematics or Education",
+      "Valid teaching credential for California",
+      "2+ years of teaching experience preferred",
+      "Strong classroom management skills",
+      "Passion for student success"
+    ],
+    "responsibilities": [
+      "Plan and deliver engaging math lessons",
+      "Assess student learning and provide feedback",
+      "Create inclusive and supportive classroom environment",
+      "Communicate with parents about student progress",
+      "Participate in faculty meetings and professional development"
+    ],
+    "skills": [
+      "Mathematics",
+      "Curriculum Design",
+      "Classroom Management",
+      "Student Assessment",
+      "Communication"
+    ],
+    "postedDate": "2026-02-01",
+    "remote": false
+  },
+  {
+    "id": "49",
+    "title": "Solutions Architect",
+    "company": "Decimal AI",
+    "department": "Sales",
+    "location": "New York, NY",
+    "type": "Full-time",
+    "level": "Senior",
+    "salary": {
+      "min": 170000,
+      "max": 230000,
+      "currency": "USD"
+    },
+    "description": "Bridge the gap between our product and enterprise customers' technical requirements. You'll design integration architectures, lead technical evaluations, and help close deals.",
+    "requirements": [
+      "5+ years in solutions architecture or technical pre-sales",
+      "Strong understanding of APIs, integrations, and enterprise architecture",
+      "Excellent presentation and communication skills",
+      "Experience with HR tech or AI products preferred",
+      "Ability to translate business needs into technical solutions"
+    ],
+    "responsibilities": [
+      "Lead technical discovery and solution design for prospects",
+      "Create architecture diagrams and technical proposals",
+      "Conduct product demos and proof-of-concept implementations",
+      "Support sales team throughout the deal cycle",
+      "Provide feedback to product team on customer needs"
+    ],
+    "skills": [
+      "Solutions Architecture",
+      "API Integration",
+      "Technical Sales",
+      "Enterprise Software",
+      "Presentation"
+    ],
+    "postedDate": "2026-02-08",
+    "remote": true
+  },
+  {
+    "id": "50",
+    "title": "Construction Project Manager",
+    "company": "Apex Builders",
+    "department": "Operations",
+    "location": "Las Vegas, NV",
+    "type": "Full-time",
+    "level": "Senior",
+    "salary": {
+      "min": 95000,
+      "max": 135000,
+      "currency": "USD"
+    },
+    "description": "Manage commercial construction projects from planning through completion. You'll oversee budgets, schedules, and teams to deliver projects on time and within budget.",
+    "requirements": [
+      "5+ years of construction project management experience",
+      "PMP or CCM certification preferred",
+      "Experience with commercial construction projects $5M+",
+      "Proficiency in project management software (Procore, MS Project)",
+      "Strong leadership and communication skills"
+    ],
+    "responsibilities": [
+      "Plan and manage construction project timelines",
+      "Oversee project budgets and financial reporting",
+      "Coordinate with subcontractors, vendors, and clients",
+      "Ensure compliance with safety regulations and building codes",
+      "Resolve project issues and manage change orders"
+    ],
+    "skills": [
+      "Construction Management",
+      "Procore",
+      "Budgeting",
+      "Safety Compliance",
+      "Team Leadership",
+      "Scheduling"
+    ],
+    "postedDate": "2026-02-04",
+    "remote": false
+  }
+]

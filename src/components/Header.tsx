@@ -2,8 +2,13 @@
 
 import { Briefcase } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useResumeModal } from "@/contexts/ResumeModalContext";
 
 export default function Header() {
+  const pathname = usePathname();
+  const { openModal } = useResumeModal();
+
   return (
     <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -25,16 +30,30 @@ export default function Header() {
           <nav className="flex items-center gap-1">
             <Link
               href="/"
-              className="text-sm text-muted hover:text-foreground px-3 py-2 rounded-lg hover:bg-foreground/5 transition-all font-medium"
+              className={`text-sm px-3 py-2 rounded-lg transition-all font-medium ${
+                pathname === "/"
+                  ? "text-foreground bg-foreground/5"
+                  : "text-muted hover:text-foreground hover:bg-foreground/5"
+              }`}
+            >
+              Home
+            </Link>
+            <Link
+              href="/jobs"
+              className={`text-sm px-3 py-2 rounded-lg transition-all font-medium ${
+                pathname?.startsWith("/jobs")
+                  ? "text-foreground bg-foreground/5"
+                  : "text-muted hover:text-foreground hover:bg-foreground/5"
+              }`}
             >
               Browse Jobs
             </Link>
-            <Link
-              href="/#upload"
+            <button
+              onClick={openModal}
               className="text-sm bg-primary text-white px-4 py-2 rounded-xl hover:bg-primary-hover transition-all font-medium shadow-sm hover:shadow-md"
             >
               Match My Resume
-            </Link>
+            </button>
           </nav>
         </div>
       </div>

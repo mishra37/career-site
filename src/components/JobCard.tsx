@@ -1,7 +1,6 @@
 "use client";
 
-import { Job } from "@/lib/types";
-import { formatSalary } from "@/lib/jobs-data";
+import { Job, formatSalary } from "@/lib/types";
 import {
   MapPin,
   Clock,
@@ -9,6 +8,8 @@ import {
   Briefcase,
   Wifi,
   Building2,
+  Globe,
+  Shield,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -25,9 +26,20 @@ export default function JobCard({ job, matchScore, matchReason }: JobCardProps) 
   const postedLabel =
     daysAgo === 0 ? "Today" : daysAgo === 1 ? "Yesterday" : `${daysAgo}d ago`;
 
+  const remoteColor =
+    job.remoteType === "Remote"
+      ? "bg-success/10 text-success"
+      : job.remoteType === "Hybrid"
+        ? "bg-warning/10 text-warning"
+        : "bg-foreground/5 text-muted";
+
+  const remoteIcon =
+    job.remoteType === "Remote" ? Wifi : job.remoteType === "Hybrid" ? Globe : Building2;
+  const RemoteIcon = remoteIcon;
+
   return (
     <Link href={`/jobs/${job.id}`}>
-      <div className="group bg-card-bg border border-border rounded-2xl p-5 hover:shadow-lg hover:shadow-primary/5 hover:border-primary/30 transition-all duration-200 cursor-pointer relative overflow-hidden">
+      <div className="group bg-card-bg border border-border rounded-2xl p-5 hover:shadow-lg hover:shadow-primary/5 hover:border-primary/30 transition-all duration-200 cursor-pointer relative overflow-hidden h-full">
         {/* Match Score Badge */}
         {matchScore !== undefined && (
           <div className="absolute top-4 right-4">
@@ -39,7 +51,7 @@ export default function JobCard({ job, matchScore, matchReason }: JobCardProps) 
 
         {/* Header */}
         <div className="mb-3">
-          <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors pr-20">
+          <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors pr-20 line-clamp-1">
             {job.title}
           </h3>
           <div className="flex items-center gap-1.5 mt-1">
@@ -57,10 +69,14 @@ export default function JobCard({ job, matchScore, matchReason }: JobCardProps) 
           <span className="inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-lg bg-foreground/5 text-muted font-medium">
             {job.level}
           </span>
-          {job.remote && (
+          <span className={`inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-lg font-medium ${remoteColor}`}>
+            <RemoteIcon className="w-3 h-3" />
+            {job.remoteType}
+          </span>
+          {job.visaSponsorship && (
             <span className="inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-lg bg-success/10 text-success font-medium">
-              <Wifi className="w-3 h-3" />
-              Remote
+              <Shield className="w-3 h-3" />
+              Visa
             </span>
           )}
         </div>
@@ -84,7 +100,7 @@ export default function JobCard({ job, matchScore, matchReason }: JobCardProps) 
         {/* Match reason */}
         {matchReason && (
           <div className="mt-3 pt-3 border-t border-border">
-            <p className="text-xs text-muted italic">{matchReason}</p>
+            <p className="text-xs text-muted italic line-clamp-2">{matchReason}</p>
           </div>
         )}
 

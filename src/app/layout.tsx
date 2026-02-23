@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import Providers from "@/components/Providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,15 +30,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
-        <main className="min-h-[calc(100vh-4rem)]">{children}</main>
-        <footer className="border-t border-border py-8 mt-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p className="text-sm text-muted">
-              © 2026 Decimal AI, Inc. All rights reserved. Built with Next.js, TypeScript & AI.
-            </p>
-          </div>
-        </footer>
+        <Providers>
+          <Header />
+          <main className="min-h-[calc(100vh-4rem)]">{children}</main>
+          <footer className="border-t border-border py-8 mt-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <p className="text-sm text-muted">
+                © 2026 Decimal AI, Inc. All rights reserved. Built with Next.js, TypeScript & AI.
+              </p>
+            </div>
+          </footer>
+        </Providers>
       </body>
     </html>
   );
