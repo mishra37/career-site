@@ -149,11 +149,8 @@ Extract text (pdfplumber / UTF-8)
 - **16 industries**: Technology (2,500), Data Science & AI (1,000), Healthcare (800), Finance (600), Legal (600), Marketing (500), Sales (500), Operations (500), Education (400), Design (400), Manufacturing (400), Product (400), Hospitality (400), Real Estate (300), Media (300), HR (300)
 - **9 experience levels**: Intern through C-Suite with weighted distribution
 - **44 locations**: 20 US cities, 3 UK, 3 Canada, 4 India, 2 Australia, 3 Europe, 3 Asia-Pacific
-- **Famous companies**: Google, Meta, Apple, Amazon, Netflix, Microsoft, OpenAI, Anthropic, etc.
-- **Type consistency**: `type=Internship` ↔ `level=Intern` (strict 1:1 mapping)
 - **Date distribution**: Shuffled across all industries for even recency distribution
-- **50 migrated** from original `jobs.json` + **9,850 generated** = **9,900 total**
-- Reproducible: `random.seed(42)`
+- **9,900 total** jobs
 
 ### TF-IDF Index (`tfidf_index.py`)
 
@@ -268,7 +265,7 @@ cd backend
 python3 -m pytest tests/ -v
 ```
 
-Open http://localhost:3000 to use the app.
+Open [http://localhost:3000](https://career-match-app.vercel.app/jobs) to use the app.
 
 ---
 
