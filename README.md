@@ -1,6 +1,6 @@
 # CareerMatch — Personalized Career Site
 
-> **Decimal AI Take-Home Project** — A personalized career site that extracts keywords from uploaded resumes and matches candidates with the most relevant job openings.
+> A personalized career site that extracts keywords from uploaded resumes and matches candidates with the most relevant job openings.
 
 ![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688?logo=fastapi)
