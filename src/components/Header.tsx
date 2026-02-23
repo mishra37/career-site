@@ -22,7 +22,7 @@ export default function Header() {
                 CareerMatch
               </h1>
               <p className="text-[10px] text-muted font-medium tracking-wider uppercase leading-none mt-0.5">
-                by Decimal AI
+                AI-Powered Jobs
               </p>
             </div>
           </Link>

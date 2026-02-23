@@ -50,7 +50,7 @@ async def lifespan(_app: FastAPI):
 
 app = FastAPI(
     title="CareerMatch API",
-    description="Personalized career site backend — Decimal AI take-home",
+    description="Personalized career site backend with AI-powered resume matching",
     version="1.0.0",
     lifespan=lifespan,
 )
