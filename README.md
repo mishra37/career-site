@@ -1,335 +1,350 @@
-# CareerMatch — Personalized Career Site
+# CareerMatch — AI-Powered Personalized Career Site
 
-> A personalized career site that extracts keywords from uploaded resumes and matches candidates with the most relevant job openings.
+> Browse 9,900+ jobs, upload your resume, and get AI-powered personalized recommendations instantly.
 
 ![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688?logo=fastapi)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
-![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python)
+![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-38bdf8?logo=tailwindcss)
+![Tests](https://img.shields.io/badge/Tests-73_passing-brightgreen)
+
+**Live Demo:** [career-match-app.vercel.app](https://career-match-app.vercel.app)
 
 ---
 
-## ✨ Features
+## Features
 
 | Feature | Description |
 |---------|-------------|
-| **Browse Jobs** | View 50+ open positions with search, filtering (department, level, type, location, remote), sorting, and pagination |
-| **Resume Upload** | Drag-and-drop PDF/TXT resume upload with real-time processing feedback |
-| **Keyword Extraction** | Extracts skills, experience level, years of experience, education, and domain keywords from resumes using curated dictionaries |
-| **Keyword Matching** | Multi-signal scoring engine ranks jobs by skill overlap, title relevance, requirements match, and domain alignment |
-| **Extracted Keywords Display** | Sidebar shows all extracted keywords (skills, level, years, domains, education) after resume upload |
-| **Job Detail Pages** | Statically generated detail pages for each role with full descriptions, requirements, responsibilities, and skills |
-| **Dark Mode** | Automatic dark mode via `prefers-color-scheme` with consistent theming |
-| **Responsive Design** | Fully responsive layout from mobile to desktop |
-| **Animations** | Subtle stagger animations, fade-ins, and loading skeletons for a polished UX |
-| **API Docs** | Auto-generated Swagger/OpenAPI docs at `/docs` (FastAPI) |
+| **Browse Jobs** | 9,900 jobs across 16 industries with search, filters (type, remote, visa, experience, salary, recency), sorting, and pagination |
+| **Resume Upload** | Drag-and-drop PDF/TXT upload via header modal or sidebar widget |
+| **AI Matching** | 6-signal scoring engine: TF-IDF similarity, skill match, title relevance, domain alignment, level proximity, role category match |
+| **Work History Parsing** | Extracts job titles, companies, and durations from resume experience sections |
+| **Role Detection** | Maps work history to categories (SWE, ML, Data Science, Product, Design, Management) to prioritize relevant jobs |
+| **Education Status** | Detects if candidate is pursuing a degree and infers intern/entry level based on graduation proximity |
+| **Job Detail Pages** | Full descriptions, requirements, responsibilities, skills, recruiter info, and salary ranges |
+| **Apply Flow** | Application form with name, email, phone, resume upload, and cover letter |
+| **Dark Mode** | Automatic via `prefers-color-scheme` with consistent theming |
+| **Responsive Design** | Mobile to desktop layout with loading skeletons |
 
 ---
 
-## 🏗️ Architecture
+## Architecture
+
+```
+┌──────────────────────────────────────────────────────┐
+│  Vercel (Next.js 16, React 19, Tailwind CSS v4)     │
+│                                                      │
+│  /              Landing page + featured jobs          │
+│  /jobs           Browse/search with filters           │
+│  /jobs/[id]      Job detail                          │
+│  /jobs/[id]/apply  Application flow                  │
+│                                                      │
+│  next.config.ts rewrites /api/* → backend            │
+├──────────────────────────────────────────────────────┤
+│  Render (FastAPI + Python)                           │
+│                                                      │
+│  GET  /api/health       Health check                 │
+│  GET  /api/jobs         Paginated listing + search   │
+│  GET  /api/jobs/{id}    Job detail                   │
+│  POST /api/match        Resume upload → AI match     │
+│  POST /api/admin/jobs   Create job (admin)           │
+│                                                      │
+│  Modules: database.py, models.py, jobs_data.py,      │
+│  keyword_extractor.py, keyword_matcher.py,           │
+│  tfidf_index.py, seed_data.py                        │
+├──────────────────────────────────────────────────────┤
+│  SQLite Database (data/career_site.db, WAL mode)     │
+│  9,900 jobs · 16 industries · 44 locations           │
+└──────────────────────────────────────────────────────┘
+```
+
+---
+
+## Resume Matching — How It Works
+
+### Pipeline
+
+```
+Upload PDF/TXT
+      │
+      ▼
+Extract text (pdfplumber / UTF-8)
+      │
+      ├──► KeywordExtractor.extract(text)
+      │     • Skills (200+ multi-word, 130+ single-word dictionary)
+      │     • Work history (titles, companies, durations from Experience section)
+      │     • Role categories (SWE, ML, Data Science, Product, Design, Management)
+      │     • Education status (pursuing vs completed, graduation proximity)
+      │     • Experience level (student → intern/entry, years → mid/senior/lead)
+      │     • Domains (14 categories: engineering, healthcare, legal, etc.)
+      │
+      ├──► TF-IDF cosine similarity (resume vs all 9,900 job documents)
+      │
+      └──► KeywordMatcher.match() → scored + ranked top 100
+```
+
+### Scoring (100 points max)
+
+| Signal | Points | How |
+|--------|--------|-----|
+| TF-IDF text similarity | 25 | Cosine similarity of resume vs job document (title x4, dept x3, skills x2, desc x1) |
+| Skill match | 35 | % of job skills found in resume (exact match) |
+| Title relevance | 5 | Resume skills appearing in job title |
+| Domain alignment | 15 | Resume domain matches job department |
+| Level proximity | 10 | Distance between inferred level and job level |
+| Role category match | 10 | Work history roles match job type (SWE resume → SWE jobs) |
+
+### Penalties (multiplicative)
+- Healthcare job + non-healthcare resume → x0.3
+- Cross-domain incompatibility (e.g., engineering resume vs design job) → x0.5
+
+### Level Inference Priority
+1. Student pursuing degree + no work experience → far from graduation = intern, near = entry
+2. Calculated years from work history → `<1yr=intern, 1-2=entry, 2-4=mid, 5-7=senior, 8-10=lead, 11+=director`
+3. Keyword-based detection fallback
+
+### Example
+
+Given a resume: "Software Engineer at Google (4 years), previously at Meta (1 year). Skills: Python, React, TypeScript, AWS, Kubernetes."
+
+**Extracted:**
+```json
+{
+  "skills": ["python", "react", "typescript", "aws", "kubernetes"],
+  "workHistory": [
+    {"title": "Software Engineer", "company": "Google", "durationYears": 4.0},
+    {"title": "Software Engineer", "company": "Meta", "durationYears": 1.0}
+  ],
+  "roleCategories": ["swe"],
+  "experienceLevel": "senior",
+  "calculatedYears": 5.0,
+  "domains": ["engineering"]
+}
+```
+
+**Result:** Senior SWE/engineering jobs ranked highest. Non-tech jobs penalized. Intern/entry roles deprioritized due to level proximity scoring.
+
+---
+
+## Data
+
+### Job Generation (seed_data.py)
+
+- **16 industries**: Technology (2,500), Data Science & AI (1,000), Healthcare (800), Finance (600), Legal (600), Marketing (500), Sales (500), Operations (500), Education (400), Design (400), Manufacturing (400), Product (400), Hospitality (400), Real Estate (300), Media (300), HR (300)
+- **9 experience levels**: Intern through C-Suite with weighted distribution
+- **44 locations**: 20 US cities, 3 UK, 3 Canada, 4 India, 2 Australia, 3 Europe, 3 Asia-Pacific
+- **Famous companies**: Google, Meta, Apple, Amazon, Netflix, Microsoft, OpenAI, Anthropic, Databricks, etc.
+- **Type consistency**: `type=Internship` if and only if `level=Intern`
+- **Date distribution**: Shuffled across all industries for even recency distribution
+- **50 migrated** from original `jobs.json` + **9,850 generated** = **9,900 total**
+- Reproducible: `random.seed(42)`
+
+### TF-IDF Index (tfidf_index.py)
+
+- scikit-learn `TfidfVectorizer` with unigrams + bigrams, 8,000 max features
+- Weighted documents: title x4, department x3, skills x2, description x1, requirements x1
+- Built on server startup (~150ms for 10K jobs), queries in <5ms
+- Supports keyword search (browse page) and resume scoring (match pipeline)
+
+---
+
+## Project Structure
 
 ```
 career-site/
-├── backend/                    # FastAPI Python backend
-│   ├── main.py                 # FastAPI app — 3 endpoints (jobs, jobs/:id, match)
-│   ├── models.py               # Pydantic models with camelCase serialization
-│   ├── jobs_data.py            # Loads shared jobs from data/jobs.json
-│   ├── keyword_extractor.py    # Resume keyword extraction engine
-│   ├── keyword_matcher.py      # Job matching & scoring engine
-│   └── requirements.txt        # Python dependencies
-├── data/
-│   └── jobs.json               # 50 jobs — shared data source for both services
-├── src/
+├── src/                          # Next.js frontend
 │   ├── app/
-│   │   ├── jobs/[id]/          # Job detail page (SSG with generateStaticParams)
-│   │   ├── layout.tsx          # Root layout with Header + Footer
-│   │   ├── page.tsx            # Homepage — hero, resume upload, job grid, keyword sidebar
-│   │   └── globals.css         # Theme variables, animations, custom styles
+│   │   ├── page.tsx              # Landing page
+│   │   ├── layout.tsx            # Root layout + header/footer
+│   │   ├── globals.css           # Tailwind + custom CSS vars
+│   │   └── jobs/
+│   │       ├── page.tsx          # Browse/search page
+│   │       └── [id]/
+│   │           ├── page.tsx      # Job detail
+│   │           └── apply/page.tsx # Apply flow
 │   ├── components/
-│   │   ├── Header.tsx          # Sticky navigation header
-│   │   ├── JobCard.tsx         # Job listing card with optional match score
-│   │   ├── JobCardSkeleton.tsx # Loading skeleton for job cards
-│   │   ├── FilterBar.tsx       # Search + filter controls
-│   │   └── ResumeUpload.tsx    # Drag-and-drop resume upload component
+│   │   ├── Header.tsx            # Sticky nav + "Match My Resume" button
+│   │   ├── FilterSidebar.tsx     # All filter controls + years validation
+│   │   ├── JobCard.tsx           # Job listing card with match score
+│   │   ├── JobCardSkeleton.tsx   # Loading skeleton
+│   │   ├── FeaturedJobs.tsx      # Landing page featured jobs
+│   │   ├── ResumeUpload.tsx      # Drag-and-drop upload widget
+│   │   ├── ResumeMatchModal.tsx  # Full-screen resume match overlay
+│   │   ├── UploadResumeButton.tsx # CTA button for landing page
+│   │   └── Providers.tsx         # React context providers
+│   ├── contexts/
+│   │   └── ResumeModalContext.tsx # Global resume modal state
 │   └── lib/
-│       ├── types.ts            # TypeScript interfaces (Job, MatchResult, ExtractedKeywords)
-│       └── jobs-data.ts        # Jobs data for SSG page generation
-├── next.config.ts              # Proxies /api/* to FastAPI via rewrites
-└── package.json
+│       └── types.ts              # TypeScript interfaces
+│
+├── backend/                      # FastAPI backend
+│   ├── main.py                   # API routes + startup (auto-seeds if DB empty)
+│   ├── database.py               # SQLite access layer (WAL mode, indexes)
+│   ├── models.py                 # Pydantic models (Job, MatchResult, WorkEntry, etc.)
+│   ├── jobs_data.py              # Job data access helpers
+│   ├── keyword_extractor.py      # Resume → structured keywords + work history
+│   ├── keyword_matcher.py        # Keywords + TF-IDF → scored matches
+│   ├── tfidf_index.py            # TF-IDF vectorizer + search
+│   ├── seed_data.py              # Generate 9,900 jobs
+│   ├── requirements.txt          # Python dependencies
+│   ├── runtime.txt               # Python version for Render (3.11.7)
+│   └── tests/                    # 73 pytest tests
+│       ├── conftest.py
+│       ├── test_api.py           # 16 tests — all API endpoints
+│       ├── test_database.py      # 18 tests — schema, CRUD, filtering
+│       ├── test_keyword_extractor.py  # 22 tests — extraction logic
+│       ├── test_keyword_matcher.py    # 12 tests — scoring engine
+│       └── test_tfidf.py         # 5 tests — index + search
+│
+├── data/
+│   ├── jobs.json                 # Original 50 seed jobs
+│   └── career_site.db            # SQLite database (gitignored, auto-generated)
+│
+├── next.config.ts                # API proxy → backend (uses API_URL env var)
+├── package.json
+├── tsconfig.json
+├── PHASE1_PLAN.md                # Phase 1 implementation details
+├── PHASE2_PLAN.md                # Scaling architecture (500 → 5M jobs)
+└── .gitignore
 ```
-
-### Why FastAPI over Flask?
-
-| Criteria | FastAPI | Flask |
-|----------|---------|-------|
-| **Async support** | Native `async/await` — non-blocking I/O out of the box | Requires extensions (quart, gevent) |
-| **Data validation** | Built-in via Pydantic models — automatic request/response validation | Manual or via Flask-Marshmallow |
-| **API documentation** | Auto-generated Swagger UI + ReDoc at `/docs` | Requires Flask-RESTx or flasgger |
-| **File uploads** | Clean `UploadFile` API with streaming support | Werkzeug's `request.files` — more verbose |
-| **Performance** | ASGI-based, significantly faster than WSGI | WSGI, synchronous by default |
-| **Type hints** | First-class — powers validation, docs, and IDE support | Not integral to the framework |
-
-**FastAPI was the clear choice** for this project because it provides automatic OpenAPI docs, Pydantic model validation (with camelCase serialization for seamless frontend integration), and native async support — all essential for a modern API that handles file uploads and keyword extraction.
-
-### Key Design Decisions
-
-1. **Decoupled Architecture** — The frontend (Next.js) and backend (FastAPI) are fully separated. Next.js proxies `/api/*` requests to FastAPI via `rewrites()`, keeping frontend code unchanged while the API runs as a standalone Python service.
-
-2. **Shared Data Source** — Both services read from `data/jobs.json`, ensuring a single source of truth for all 50 jobs. The frontend uses it for SSG page generation, while the backend loads it for search and matching.
-
-3. **Keyword-Based Matching** — Instead of semantic/embedding approaches, the engine uses explicit keyword extraction with curated skill dictionaries. This is transparent (users see exactly which keywords were extracted), fast (no API calls), and deterministic.
-
-4. **Pydantic camelCase Models** — All API responses use `alias_generator=to_camel` so Python's `snake_case` fields serialize as `camelCase` JSON — matching JavaScript conventions without any frontend changes.
-
-5. **Server-Side PDF Parsing** — Resume PDFs are parsed on the Python backend using `pdfplumber` (more reliable than pdf-parse for complex PDF layouts), keeping the client lightweight.
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
-- **Node.js** ≥ 18
-- **Python** ≥ 3.10
-- **npm** or **yarn**
+- **Node.js** >= 18
+- **Python** >= 3.10
 
 ### Installation
 
 ```bash
 # Clone the repo
-git clone <repo-url>
+git clone https://github.com/mishra37/career-site.git
 cd career-site
 
-# ─── Frontend ───
+# Frontend dependencies
 npm install
 
-# ─── Backend ───
+# Backend dependencies
 cd backend
-python3 -m venv venv
-source venv/bin/activate
 pip install -r requirements.txt
-cd ..
 ```
 
-### Running the App
+### Seed the Database
 
-You need **two terminals** — one for the FastAPI backend and one for the Next.js frontend:
+```bash
+# Generate 9,900 jobs (run from backend/)
+cd backend
+python3 seed_data.py --reset
+```
+
+### Run the App
+
+You need **two terminals**:
 
 ```bash
 # Terminal 1: Start FastAPI backend (port 8000)
 cd backend
-source venv/bin/activate
-uvicorn main:app --reload --port 8000
+uvicorn main:app --host 0.0.0.0 --port 8000
 
 # Terminal 2: Start Next.js frontend (port 3000)
 npm run dev
 ```
 
-The app will be available at **http://localhost:3000**.  
-FastAPI Swagger docs are at **http://localhost:8000/docs**.
+Open **http://localhost:3000** to use the app.
+
+> **Note:** If the database is empty on startup, the backend auto-seeds 9,900 jobs (useful for deployment).
+
+### Run Tests
+
+```bash
+cd backend
+python3 -m pytest tests/ -v
+```
+
+All 73 tests should pass.
 
 ### Environment Variables
 
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
-| `API_URL` | No | `http://localhost:8000` | FastAPI backend URL (used by Next.js proxy) |
+| `API_URL` | No | `http://localhost:8000` | Backend URL (used by Next.js proxy in `next.config.ts`) |
+| `DATABASE_PATH` | No | `data/career_site.db` | SQLite database file path |
+| `ADMIN_API_KEY` | No | `dev-admin-key` | Admin API authentication key |
 
 ---
 
-## 🤖 Keyword Extraction & Matching — How It Works
-
-### Step 1: Keyword Extraction (`keyword_extractor.py`)
-
-When a user uploads a resume, the backend extracts structured keywords:
-
-| Extracted Data | Method | Example |
-|---------------|--------|---------|
-| **Skills** | Curated dictionaries (~250 skills) — matches multi-word first (e.g., "machine learning"), then single-word (e.g., "python") | `["python", "react", "machine learning", "aws"]` |
-| **Experience Level** | Pattern matching on keywords (e.g., "senior", "lead") + inferred from years | `"senior"` |
-| **Years of Experience** | Regex patterns (e.g., "5+ years", "3 years of experience") | `5` |
-| **Education** | Keyword matching (e.g., "bachelor", "phd", "computer science") | `["bachelor", "computer science"]` |
-| **Domains** | Requires ≥2 keyword hits per domain from 13 domain categories | `["engineering", "data science"]` |
-
-**Key implementation details:**
-- Multi-word skills are matched first (sorted by length, longest first) to avoid partial matches
-- Single-word skills are matched against word tokens only (not substrings) — prevents "scala" matching "scalable"
-- Common false positives like "go" (the language vs. the word) are excluded — "golang" is used instead
-- If level isn't detected by keywords but years are found, level is inferred (e.g., 5 years → senior)
-
-### Step 2: Job Matching (`keyword_matcher.py`)
-
-Extracted keywords are scored against each of the 50 jobs using weighted signals:
-
-| Signal | Weight (pts) | Description |
-|--------|-------------|-------------|
-| **Skill Match** | 50 | Jaccard overlap between resume skills and job's requirements + skills |
-| **Title Relevance** | 20 | Word overlap between resume text and job title |
-| **Requirements Match** | 15 | How many of the job's specific requirements appear in the resume |
-| **Domain Alignment** | 15 | Whether the candidate's detected domains match the job's department |
-| **Level Bonus** | +5 | Added when experience level matches the job level |
-| **Domain Penalty** | ×0.3 | Applied when domains are completely unrelated (e.g., healthcare vs engineering) |
-
-Results are sorted by score and the top 20 matches (above a minimum threshold of 5) are returned.
-
-### Example
-
-Given a resume with "Senior Software Engineer, 5 years experience in Python, React, Node.js, PostgreSQL, AWS, microservices, REST APIs":
-
-**Extracted Keywords:**
-```json
-{
-  "skills": ["python", "react", "node.js", "postgresql", "aws", "microservices", "rest apis"],
-  "experienceLevel": "senior",
-  "yearsOfExperience": 5,
-  "domains": ["engineering"],
-  "education": []
-}
-```
-
-**Top Matches:**
-1. Senior Software Engineer — 46 pts
-2. Full Stack Engineer — 46 pts
-3. Junior Frontend Developer — 41 pts
-4. Backend Engineer — 39 pts
-5. Data Engineer — 35 pts
-
----
-
-## 📊 Scaling from 50 to 5 Million Jobs
-
-This section outlines how the architecture would evolve as the job catalog grows.
-
-### Current State: 50 Jobs (In-Memory)
-- Jobs stored in a TypeScript array
-- Full-text search via string matching
-- Matching runs against all jobs synchronously
-- Response time: <100ms
-
-### 500 → 5,000 Jobs: Add a Database
-- **Migrate to PostgreSQL** with proper indexing (department, level, location, type)
-- **Full-text search** using PostgreSQL's `tsvector` + `GIN` indexes
-- **Connection pooling** via PgBouncer or Prisma's connection pool
-- Cache filter aggregations (department counts, etc.)
-- Response time target: <200ms
-
-### 5,000 → 50,000 Jobs: Search Infrastructure
-- **Introduce Elasticsearch/Meilisearch** for fast faceted search and typo-tolerant queries
-- **Pre-compute embeddings** for all jobs and store in a vector database (Pinecone, pgvector, Qdrant)
-- **Background job processing** — resume matching moves to a queue (Bull/BullMQ) with progress streaming via WebSockets/SSE
-- **CDN caching** for job listing pages with ISR (Incremental Static Regeneration)
-- **API pagination** with cursor-based pagination instead of offset
-
-### 50,000 → 500,000 Jobs: Distributed Systems
-- **Microservices split**: Separate services for job search, matching, and resume processing
-- **Redis caching layer** for hot job data and pre-computed match results
-- **Sharded vector database** — partition embeddings by industry/region
-- **Rate limiting** and request throttling on the matching API
-- **Horizontal scaling** with Kubernetes — auto-scale matching workers based on queue depth
-- **Batch embedding computation** — nightly pipeline to update job embeddings for new/modified listings
-- Response time target: <500ms for matching, <100ms for search
-
-### 500,000 → 5 Million Jobs: Platform Scale
-- **Event-driven architecture** with Kafka for job updates/matching events
-- **Multi-region deployment** — job data replicated across regions for low-latency search
-- **ML pipeline** (Airflow/Prefect) for:
-  - Training custom matching models on user interaction data (clicks, applications)
-  - A/B testing different ranking algorithms
-  - Personalization signals beyond resume (browsing history, saved jobs)
-- **Approximate Nearest Neighbor (ANN)** search via HNSW indexes for sub-second vector similarity across millions of embeddings
-- **GraphQL federation** to compose data from multiple services
-- **Data warehouse** (Snowflake/BigQuery) for analytics on matching quality, conversion rates
-- Response time target: <1s for personalized matching (async with streaming results)
-
-### Trade-offs at Each Stage
-
-| Dimension | Small Scale | Platform Scale |
-|-----------|-------------|----------------|
-| **Complexity** | Single Next.js app, zero infra | Microservices, ML pipelines, message queues |
-| **Cost** | $0/month (Vercel free tier) | $10K-100K+/month infra |
-| **Matching Quality** | Keyword heuristics work well | Custom ML models with continuous learning |
-| **Latency** | Synchronous, instant | Async with progressive loading |
-| **Data Freshness** | Real-time (in-memory) | Eventually consistent (minutes) |
-| **Team Size** | 1 developer | 5-15 engineers across platform/ML/infra |
-
-The key principle: **start simple, measure, then optimize the bottleneck**. Don't build for 5M jobs when you have 50.
-
----
-
-## 🧪 Testing the App
-
-### Quick Test with Resume Upload
-
-1. Visit `http://localhost:3000`
-2. Upload any `.pdf` or `.txt` file containing resume text
-3. Jobs will be re-ranked by relevance with match scores
-
-### API Testing
-
-```bash
-# List jobs with filters (through Next.js proxy)
-curl "http://localhost:3000/api/jobs?department=Engineering&level=Senior"
-
-# Or hit FastAPI directly
-curl "http://localhost:8000/api/jobs?department=Engineering&level=Senior"
-
-# Get a specific job
-curl "http://localhost:3000/api/jobs/1"
-
-# Match a resume (text file)
-curl -X POST "http://localhost:3000/api/match" \
-  -F "resume=@path/to/resume.txt"
-
-# Match a resume (PDF)
-curl -X POST "http://localhost:3000/api/match" \
-  -F "resume=@path/to/resume.pdf"
-
-# Interactive API docs (FastAPI auto-generated)
-open http://localhost:8000/docs
-```
-
----
-
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Technology | Why |
 |-------|-----------|-----|
-| **Frontend** | Next.js 16 (App Router) | Server components, SSG for job pages, proxy rewrites |
-| **Backend** | FastAPI 0.115 | Async, Pydantic validation, auto OpenAPI docs, native file upload |
-| **Language (FE)** | TypeScript 5 | Type safety across the frontend |
-| **Language (BE)** | Python 3.10+ | Rich NLP ecosystem, curated skill dictionaries |
-| **Styling** | Tailwind CSS v4 | Utility-first, rapid UI development |
-| **Icons** | Lucide React | Modern, consistent icon set |
-| **PDF Parsing** | pdfplumber | Robust server-side PDF text extraction |
-| **Data Validation** | Pydantic v2 | Request/response models with camelCase serialization |
-| **ASGI Server** | Uvicorn | High-performance Python web server |
-| **Deployment** | Vercel (FE) + any ASGI host (BE) | Decoupled deployment |
+| Frontend | Next.js 16, React 19, TypeScript | App router, modern React |
+| Styling | Tailwind CSS v4 | Utility-first, fast iteration |
+| Icons | Lucide React | Lightweight, consistent icon set |
+| Backend | FastAPI, Pydantic 2 | Fast async Python, auto-validation, OpenAPI docs |
+| Database | SQLite (WAL mode) | Zero-config, single-file, great read concurrency |
+| Search | scikit-learn TF-IDF | In-memory vectorized search, no external service |
+| PDF Parsing | pdfplumber | Reliable server-side PDF text extraction |
+| Testing | pytest, httpx | 73 backend tests across 5 test files |
+| Hosting | Vercel (frontend) + Render (backend) | Decoupled deployment, free tier |
 
 ---
 
-## 📝 Product Thinking
+## Key Design Decisions
 
-### What I'd Add Next (with more time)
+1. **Decoupled Frontend/Backend** — Next.js proxies `/api/*` to FastAPI via `rewrites()`. Frontend code uses relative paths (`/api/jobs`), backend runs as a standalone Python service. Either can be deployed independently.
 
-1. **Saved Jobs** — Let users bookmark positions (localStorage → auth + database)
-2. **Application Flow** — "Apply Now" with pre-filled fields from parsed resume
-3. **Email Alerts** — Notify candidates when new matching jobs are posted
-4. **Employer Dashboard** — Let recruiters see anonymized candidate match scores
-5. **Resume Feedback** — Show which skills are missing for top-matched roles
-6. **Multi-language Support** — i18n for global career sites
-7. **Analytics** — Track search patterns, popular filters, conversion funnels
-8. **Accessibility Audit** — Full WCAG 2.1 AA compliance with screen reader testing
+2. **SQLite for Phase 1** — WAL mode provides excellent read concurrency with zero configuration. For a read-heavy job board with ~10K jobs, it outperforms PostgreSQL on single-machine latency (no network hop). The trade-off (single-writer) only matters at 50K+ jobs.
 
-### Design Rationale
+3. **TF-IDF over Embeddings** — For 10K jobs, TF-IDF cosine similarity captures 80%+ of what embeddings would provide. No model serving, no embedding pipeline, no vector store needed. Semantic matching (e.g., "Data Scientist" matching "ML Engineer") is handled by role category detection instead.
 
-- **Sidebar layout** for resume upload keeps it visible without interrupting browsing
-- **Match scores** are shown as percentage badges — intuitive and scannable
-- **Match reasons** explain *why* a job was recommended, building user trust
-- **Diverse job data** demonstrates the engine can handle cross-industry matching
-- **No auth required** — reduces friction for the primary use case (finding jobs)
+4. **Multi-Signal Scoring** — Rather than relying on a single similarity metric, the matcher combines 6 weighted signals (TF-IDF, skills, title, domain, level, role category) with domain-specific penalties. This produces more intuitive results than any single signal alone.
+
+5. **Client-Side Filtering for Match Results** — After matching, the top 100 results are sent to the client. Users can filter/sort these instantly without API round-trips. Server-side filtering is used for the full 9,900-job browse mode.
+
+6. **Auto-Seed on Empty Database** — The backend detects an empty database on startup and runs `seed_data.py` automatically. This eliminates manual setup for deployments (Render, etc.).
 
 ---
 
-## 📄 License
+## Scaling Strategy
+
+See [PHASE2_PLAN.md](PHASE2_PLAN.md) for the full scaling architecture covering 500 → 5K → 500K → 5M jobs.
+
+**Summary:**
+
+| Scale | Strategy | Cost |
+|-------|----------|------|
+| **500 jobs** | Current approach works perfectly | $0/month |
+| **5,000 jobs** | Add SQLite FTS5, facet caching, background TF-IDF rebuild | $0/month |
+| **500,000 jobs** | PostgreSQL + Redis + retrieve-rerank pipeline + async matching | ~$50/month |
+| **5,000,000 jobs** | Elasticsearch cluster + vector embeddings + microservices | ~$500/month |
+
+**Current trade-offs:**
+- SQLite WAL mode: great read concurrency, single-writer (fine for read-heavy job site)
+- In-memory TF-IDF: fast queries (<5ms) but rebuilds on every restart (~150ms)
+- Client-side filtering for match results (max 100): instant filter changes, no API round-trips
+- Server-side filtering for browse: handles full 9,900 jobs efficiently with SQL indexes
+
+---
+
+## Test Coverage
+
+**73 tests across 5 test files:**
+
+| File | Tests | What |
+|------|-------|------|
+| `test_api.py` | 16 | All API endpoints, auth, error handling |
+| `test_database.py` | 18 | Schema, CRUD, filtering, pagination, sorting |
+| `test_keyword_extractor.py` | 22 | Skill extraction, work history, level detection, domains, education |
+| `test_keyword_matcher.py` | 12 | Scoring, domain penalties, level proximity, role categories |
+| `test_tfidf.py` | 5 | Index build, search ranking, resume scoring |
+
+---
+
+## License
 
 MIT
