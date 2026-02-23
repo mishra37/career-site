@@ -1,6 +1,6 @@
 # CareerMatch — AI-Powered Personalized Career Site
 
-> Browse 9,900+ jobs, upload your resume, and get AI-powered personalized recommendations instantly.
+> Browse 9,900+ jobs, upload your resume, and get AI-powered personalized recommendations instantly. These jobs aren't real as they are synthetically generated using AI tools.
 
 ![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688?logo=fastapi)
@@ -9,15 +9,13 @@
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-38bdf8?logo=tailwindcss)
 ![Tests](https://img.shields.io/badge/Tests-73_passing-brightgreen)
 
-**Live Demo:** [career-match-app.vercel.app](https://career-match-app.vercel.app)
-
 ---
 
 ## Features
 
 | Feature | Description |
 |---------|-------------|
-| **Browse Jobs** | 9,900 jobs across 16 industries with search, filters (type, remote, visa, experience, salary, recency), sorting, and pagination |
+| **Browse Jobs** | 9,900 synthetic jobs across 16 industries with search, filters (type, remote, visa, experience, salary, recency), sorting, and pagination |
 | **Resume Upload** | Drag-and-drop PDF/TXT upload via header modal or sidebar widget |
 | **AI Matching** | 6-signal scoring engine: TF-IDF similarity, skill match, title relevance, domain alignment, level proximity, role category match |
 | **Work History Parsing** | Extracts job titles, companies, and durations from resume experience sections |
