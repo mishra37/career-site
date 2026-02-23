@@ -23,7 +23,7 @@ import pdfplumber
 from fastapi import FastAPI, File, Header, HTTPException, Query, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 
-from database import get_all_jobs_raw, get_job_by_id as db_get_job, get_jobs, init_db, insert_job
+from database import get_all_jobs_raw, get_job_by_id as db_get_job, get_job_count, get_jobs, init_db, insert_job
 from jobs_data import _dict_to_job
 from keyword_extractor import KeywordExtractor
 from keyword_matcher import KeywordMatcher
@@ -39,6 +39,10 @@ ADMIN_API_KEY = os.environ.get("ADMIN_API_KEY", "dev-admin-key")
 async def lifespan(_app: FastAPI):
     # Startup
     init_db()
+    # Auto-seed if database is empty (e.g., first deploy on Render)
+    if get_job_count() == 0:
+        from seed_data import seed_database
+        seed_database(reset=False)
     _rebuild_tfidf()
     yield
     # Shutdown (nothing to clean up)
@@ -66,6 +70,14 @@ def _rebuild_tfidf() -> None:
     """Build (or rebuild) the TF-IDF index from all jobs in SQLite."""
     all_jobs = get_all_jobs_raw()
     tfidf_index.build(all_jobs)
+
+
+# ── Health check (for Render) ─────────────────────────────
+
+
+@app.get("/api/health")
+async def health_check():
+    return {"status": "ok"}
 
 
 # ── GET /api/jobs ─────────────────────────────────────────
