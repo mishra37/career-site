@@ -133,11 +133,8 @@ Given a resume: "Software Engineer at Google (4 years), previously at Meta (1 ye
 - **16 industries**: Technology (2,500), Data Science & AI (1,000), Healthcare (800), Finance (600), Legal (600), Marketing (500), Sales (500), Operations (500), Education (400), Design (400), Manufacturing (400), Product (400), Hospitality (400), Real Estate (300), Media (300), HR (300)
 - **9 experience levels**: Intern through C-Suite with weighted distribution
 - **44 locations**: 20 US cities, 3 UK, 3 Canada, 4 India, 2 Australia, 3 Europe, 3 Asia-Pacific
-- **Famous companies**: Google, Meta, Apple, Amazon, Netflix, Microsoft, OpenAI, Anthropic, Databricks, etc.
-- **Type consistency**: `type=Internship` if and only if `level=Intern`
 - **Date distribution**: Shuffled across all industries for even recency distribution
-- **50 migrated** from original `jobs.json` + **9,850 generated** = **9,900 total**
-- Reproducible: `random.seed(42)`
+- **9,900 total** jobs
 
 ### TF-IDF Index (tfidf_index.py)
 
@@ -298,7 +295,7 @@ All 73 tests should pass.
 
 2. **SQLite for Phase 1** — WAL mode provides excellent read concurrency with zero configuration. For a read-heavy job board with ~10K jobs, it outperforms PostgreSQL on single-machine latency (no network hop). The trade-off (single-writer) only matters at 50K+ jobs.
 
-3. **TF-IDF over Embeddings** — For 10K jobs, TF-IDF cosine similarity captures 80%+ of what embeddings would provide. No model serving, no embedding pipeline, no vector store needed. Semantic matching (e.g., "Data Scientist" matching "ML Engineer") is handled by role category detection instead.
+3. **TF-IDF over Embeddings** — For ~10K jobs, TF-IDF cosine similarity captures 80%+ of what embeddings would provide. No model serving, no embedding pipeline, no vector store needed. Semantic matching (e.g., "Data Scientist" matching "ML Engineer") is handled by role category detection instead.
 
 4. **Multi-Signal Scoring** — Rather than relying on a single similarity metric, the matcher combines 6 weighted signals (TF-IDF, skills, title, domain, level, role category) with domain-specific penalties. This produces more intuitive results than any single signal alone.
 
@@ -310,16 +307,16 @@ All 73 tests should pass.
 
 ## Scaling Strategy
 
-See [PHASE2_PLAN.md](PHASE2_PLAN.md) for the full scaling architecture covering 500 → 5K → 500K → 5M jobs.
+Phase 2 plan is still in progress!
 
 **Summary:**
 
-| Scale | Strategy | Cost |
-|-------|----------|------|
-| **500 jobs** | Current approach works perfectly | $0/month |
-| **5,000 jobs** | Add SQLite FTS5, facet caching, background TF-IDF rebuild | $0/month |
-| **500,000 jobs** | PostgreSQL + Redis + retrieve-rerank pipeline + async matching | ~$50/month |
-| **5,000,000 jobs** | Elasticsearch cluster + vector embeddings + microservices | ~$500/month |
+| Scale | Tentative Strategy
+|-------|----------
+| **500 jobs** | Current approach works perfectly 
+| **5,000 jobs** | Add SQLite FTS5, facet caching, background TF-IDF rebuild
+| **500,000 jobs** | PostgreSQL + Redis + retrieve-rerank pipeline + async matching 
+| **5,000,000 jobs** | Elasticsearch cluster + vector embeddings + microservices
 
 **Current trade-offs:**
 - SQLite WAL mode: great read concurrency, single-writer (fine for read-heavy job site)
