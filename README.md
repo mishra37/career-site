@@ -101,7 +101,7 @@ cd backend && python3 -m pytest tests/ -v
 
 ## Scaling Strategy
 
-Phase 2 plan is still in progress!
+Scaling of jobs and client load is still a work in progress.
 
 | Scale | Tentative Strategy |
 |-------|----------|
